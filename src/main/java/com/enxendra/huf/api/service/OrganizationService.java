@@ -2,7 +2,6 @@ package com.enxendra.huf.api.service;
 
 import java.util.Map;
 
-import com.enxendra.huf.api.HUF;
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.model.OrganizationResponse;
@@ -15,7 +14,7 @@ public class OrganizationService extends HUFService {
 
     public OrganizationService(RequestOptions requestOptions) {
         this.requestOptions = requestOptions;
-        this.urlBase = HUF.getApiBase() + "/" + SERVICE_PATH;
+        this.urlBase = requestOptions.getApiBase() + "/" + SERVICE_PATH;
     }
 
     public OrganizationResponse getOrganization(Map<String, Object> params, Long id) throws Exception {

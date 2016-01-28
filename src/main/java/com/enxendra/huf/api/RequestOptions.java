@@ -2,11 +2,15 @@ package com.enxendra.huf.api;
 
 public class RequestOptions {
 
-    private String apiKey;
+    private String clientVersion = Constants.VERSION;
 
-    public RequestOptions(String apiKey) {
+    private String apiKey;
+    private String apiBase;
+
+    public RequestOptions(String apiKey, String apiBase) {
         super();
         this.apiKey = apiKey;
+        this.apiBase = apiBase;
     }
 
     public String getApiKey() {
@@ -15,6 +19,18 @@ public class RequestOptions {
 
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
+    }
+
+    public String getApiBase() {
+        return apiBase;
+    }
+
+    public void setApiBase(String apiBase) {
+        this.apiBase = apiBase;
+    }
+
+    public String getClientVersion() {
+        return clientVersion;
     }
 
 }
