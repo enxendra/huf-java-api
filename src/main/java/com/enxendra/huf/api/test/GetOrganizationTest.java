@@ -18,7 +18,7 @@ public class GetOrganizationTest extends ServiceTest {
 
         try {
             // Get organization with id 27
-            OrganizationResponse organizationResponse = service.getOrganization(params, new Long(27));
+            OrganizationResponse organizationResponse = service.getOrganization(params, new Long(359));
 
             if (organizationResponse.getData() != null) {
                 System.out.println(organizationResponse.getData().getPoblation());
