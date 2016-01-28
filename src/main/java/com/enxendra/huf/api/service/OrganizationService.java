@@ -26,8 +26,9 @@ public class OrganizationService extends HUFService {
 
     public OrganizationResponse createOrganization(Map<String, Object> params, RequestOptions requestOptions)
             throws Exception {
-        JsonObject jsonResponse = callService("/", RequestMethod.GET);
+        JsonObject jsonResponse = callService("/", RequestMethod.POST, params);
         OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
         return organizationResponse;
     }
+
 }
