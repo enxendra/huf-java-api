@@ -2,6 +2,7 @@ package com.enxendra.huf.api.service;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -38,21 +39,28 @@ public class HUFService {
     }
 
     protected JsonObject callService(String path, RequestMethod requestMethod) throws Exception {
-        return callService(path, requestMethod, null);
+        return callService(path, requestMethod, null, null);
     }
 
-    protected JsonObject callService(String path, RequestMethod requestMethod, Map<String, Object> params)
+    protected JsonObject callService(String path, RequestMethod requestMethod, Map<String, Object> queryParams)
             throws Exception {
+        return callService(path, requestMethod, queryParams, null);
+    }
+
+    protected JsonObject callService(String path, RequestMethod requestMethod, JsonObject body) throws Exception {
+        return callService(path, requestMethod, null, body);
+    }
+
+    protected JsonObject callService(String path, RequestMethod requestMethod, Map<String, Object> queryParams,
+            JsonObject body) throws Exception {
 
         JsonReader reader;
         JsonParser parser = new JsonParser();
-        String endpoint;
+        String endpoint = this.urlBase + path;
 
-        // If there are params and it is a GET request then we add params as part of the url
-        if (params != null && params.size() > 0 && requestMethod.equals(RequestMethod.GET))
-            endpoint = this.urlBase + path + getQuery(params);
-        else
-            endpoint = this.urlBase + path;
+        // If there are queryParams and it is a GET request
+        if (queryParams != null && queryParams.size() > 0 && requestMethod.equals(RequestMethod.GET))
+            endpoint = this.urlBase + path + getQuery(queryParams);
 
         System.out.println(requestMethod.name() + " request to: " + endpoint);
         HttpURLConnection urlConnection = (HttpURLConnection) new URL(endpoint).openConnection();
@@ -64,6 +72,15 @@ public class HUFService {
         urlConnection.setRequestProperty(Constants.CONTENT_TYPE, Constants.APP_JSON);
         urlConnection.setRequestProperty(Constants.AUTH, Constants.BASIC + " " + requestOptions.getApiKey());
         urlConnection.setRequestMethod(requestMethod.name());
+
+        // Add body (only if there is a body JsonObject and it is not a GET request)
+        if (body != null && !requestMethod.equals(RequestMethod.GET)) {
+            urlConnection.setDoOutput(true);
+            System.out.println("Body: " + body.toString());
+            OutputStream os = urlConnection.getOutputStream();
+            os.write(body.toString().getBytes());
+            os.flush();
+        }
 
         urlConnection.connect();
 
