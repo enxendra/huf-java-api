@@ -57,4 +57,24 @@ public class HUFService {
         return rootElement.getAsJsonObject();
 
     }
+
+    private String getQuery(Map<String, Object> params) throws UnsupportedEncodingException {
+
+        StringBuilder result = new StringBuilder();
+        boolean first = true;
+
+        for (Map.Entry<String, Object> entry : params.entrySet()) {
+            if (first)
+                first = false;
+            else
+                result.append("&");
+
+            result.append(URLEncoder.encode(entry.getKey(), "UTF-8")); // TODO: Review encoding
+            result.append("=");
+            result.append(URLEncoder.encode(entry.getValue().toString(), "UTF-8"));
+        }
+
+        return "?" + result.toString();
+
+    }
 }
