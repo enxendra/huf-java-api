@@ -7,7 +7,7 @@ import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.model.OrganizationResponse;
 import com.enxendra.huf.api.service.OrganizationService;
 
-public class OrganizationServiceTest extends ServiceTest {
+public class CreateOrganizationTest extends ServiceTest {
 
     static RequestOptions requestOptions = new RequestOptions(API_KEY);
 
@@ -16,14 +16,22 @@ public class OrganizationServiceTest extends ServiceTest {
 
         Map<String, Object> params = new HashMap<String, Object>();
 
+        params.put("poblation", "A Coruña");
+        params.put("phone", "692977695");
+        params.put("post_code", "15009");
+        params.put("web_url", "www.test.com");
+        params.put("country_code", "ESP");
+        params.put("email", "drom.gom@gmail.com");
+        params.put("address", "Padre Pita, 10");
+        params.put("tax_number", "A85638778S");
+        params.put("name", "Sopo Technologies, S.L.");
+        params.put("province", "A Coruña");
+
         try {
-            // Get organization with id 27
-            OrganizationResponse organizationResponse = service.getOrganization(params, new Long(27));
+            // Create new organization
+            OrganizationResponse organizationResponse = service.createOrganization(params, requestOptions);
 
             if (organizationResponse.getData() != null) {
-
-                System.out.println(organizationResponse.getData());
-                System.out.println(organizationResponse.getData().getPoblation());
                 System.out.println(organizationResponse.getData().getId());
 
             } else {
@@ -35,5 +43,4 @@ public class OrganizationServiceTest extends ServiceTest {
             e.printStackTrace();
         }
     }
-
 }
