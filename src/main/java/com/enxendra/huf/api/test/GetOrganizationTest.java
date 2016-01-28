@@ -1,8 +1,5 @@
 package com.enxendra.huf.api.test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.model.OrganizationResponse;
@@ -15,11 +12,9 @@ public class GetOrganizationTest extends ServiceTest {
     public static void main(String[] args) {
         OrganizationService service = new OrganizationService(requestOptions);
 
-        Map<String, Object> params = new HashMap<String, Object>();
-
         try {
             // Get organization with id 27
-            OrganizationResponse organizationResponse = service.getOrganization(params, new Long(359));
+            OrganizationResponse organizationResponse = service.getOrganization(new Long(359));
 
             if (organizationResponse.getData() != null) {
                 System.out.println(organizationResponse.getData().getPoblation());

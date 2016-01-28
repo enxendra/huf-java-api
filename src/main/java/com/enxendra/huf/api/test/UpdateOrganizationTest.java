@@ -6,7 +6,7 @@ import com.enxendra.huf.api.model.OrganizationResponse;
 import com.enxendra.huf.api.service.OrganizationService;
 import com.google.gson.JsonObject;
 
-public class CreateOrganizationTest extends ServiceTest {
+public class UpdateOrganizationTest extends ServiceTest {
 
     static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST);
 
@@ -16,21 +16,21 @@ public class CreateOrganizationTest extends ServiceTest {
         JsonObject body = new JsonObject();
 
         body.addProperty("poblation", "A Coruña");
-        body.addProperty("phone", "692977695");
+        body.addProperty("phone", "666666666");
         body.addProperty("post_code", "15009");
         body.addProperty("web_url", "www.test.com");
         body.addProperty("country_code", "ESP");
-        body.addProperty("email", "drom.gom@gmail.com");
+        body.addProperty("email", "test@test.com");
         body.addProperty("address", "Padre Pita, 10");
         body.addProperty("tax_number", "A856038778S");
         body.addProperty("name", "Sopo Technologies, S.L.");
         body.addProperty("province", "A Coruña");
 
         try {
-            OrganizationResponse organizationResponse = service.createOrganization(body, requestOptions);
+            OrganizationResponse organizationResponse = service.updateOrganization(new Long(359), body, requestOptions);
 
-            if (organizationResponse.getData() != null) {
-                System.out.println("Organización creada con id: " + organizationResponse.getData().getId());
+            if (organizationResponse.getErrorMessage() != null) {
+                System.out.println("Organización actualizada correctamente");
 
             } else {
                 System.out.println("ERROR " + organizationResponse.getErrorCode() + ": "

@@ -1,9 +1,8 @@
 package com.enxendra.huf.api.service;
 
-import java.util.Map;
-
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.model.OrganizationListResponse;
 import com.enxendra.huf.api.model.OrganizationResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -17,7 +16,7 @@ public class OrganizationService extends HUFService {
         this.urlBase = requestOptions.getApiBase() + "/" + SERVICE_PATH;
     }
 
-    public OrganizationResponse getOrganization(Map<String, Object> params, Long id) throws Exception {
+    public OrganizationResponse getOrganization(Long id) throws Exception {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.GET);
         OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
         return organizationResponse;
@@ -27,6 +26,26 @@ public class OrganizationService extends HUFService {
         JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
         OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
         return organizationResponse;
+    }
+
+    public OrganizationResponse updateOrganization(Long id, JsonObject body, RequestOptions requestOptions)
+            throws Exception {
+        JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
+        OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
+        return organizationResponse;
+    }
+
+    public OrganizationResponse deleteOrganization(Long id) throws Exception {
+        JsonObject jsonResponse = callService("/" + id, RequestMethod.DELETE);
+        OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
+        return organizationResponse;
+    }
+
+    public OrganizationListResponse listOrganizations() throws Exception {
+        JsonObject jsonResponse = callService("/", RequestMethod.GET);
+        OrganizationListResponse organizationListResponse = (new Gson()).fromJson(jsonResponse,
+                OrganizationListResponse.class);
+        return organizationListResponse;
     }
 
 }

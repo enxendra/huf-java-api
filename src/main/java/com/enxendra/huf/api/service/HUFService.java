@@ -86,14 +86,15 @@ public class HUFService {
 
         urlConnection.connect();
 
+        System.out.println("Response code: " + urlConnection.getResponseCode());
+        System.out.println("Response message: " + urlConnection.getResponseMessage());
+
         try {
             reader = new JsonReader(new InputStreamReader(urlConnection.getInputStream()));
         } catch (IOException e) {
             reader = new JsonReader(new InputStreamReader(urlConnection.getErrorStream()));
         }
 
-        System.out.println("Response code: " + urlConnection.getResponseCode());
-        System.out.println("Response message: " + urlConnection.getResponseMessage());
         JsonElement rootElement = parser.parse(reader);
 
         return rootElement.getAsJsonObject();
