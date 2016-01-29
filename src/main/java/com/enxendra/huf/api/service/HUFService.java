@@ -97,7 +97,12 @@ public class HUFService {
 
         JsonElement rootElement = parser.parse(reader);
 
-        return rootElement.getAsJsonObject();
+        // Add response code and message to the json object
+        JsonObject jsonObject = rootElement.getAsJsonObject();
+        jsonObject.addProperty("responseCode", urlConnection.getResponseCode());
+        jsonObject.addProperty("responseMessage", urlConnection.getResponseMessage());
+
+        return jsonObject;
 
     }
 
