@@ -7,7 +7,7 @@ public class CustomerConfiguration {
     private String invoice_format;
     private String channel;
     private String bank_account;
-    private Integer payment_deadline;
+    private String payment_deadline;
     private String pdf_template;
 
     public String getCurrency() {
@@ -30,7 +30,7 @@ public class CustomerConfiguration {
         return bank_account;
     }
 
-    public Integer getPaymentDeadline() {
+    public String getPaymentDeadline() {
         return payment_deadline;
     }
 
