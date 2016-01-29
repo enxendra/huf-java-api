@@ -12,4 +12,7 @@ public class Constants {
     public static final String AUTH = "Authorization";
     public static final String BASIC = "Basic";
     public static final String CLIENT_VERSION = "Client-version";
+
+    public static final String OK = "200";
+    public static final Object CREATED = "201";
 }
