@@ -7,11 +7,11 @@ public class OrganizationConfiguration {
     private String invoice_format;
     private String channel;
     private String bank_account;
-    private String payment_deadline;
+    private Integer payment_deadline;
     private String pdf_template;
     private String primary_color;
     private String secondary_color;
-    private String signature_delegate;
+    private Boolean signature_delegate;
 
     public String getCurrency() {
         return currency;
@@ -33,7 +33,7 @@ public class OrganizationConfiguration {
         return bank_account;
     }
 
-    public String getPaymentDeadline() {
+    public Integer getPaymentDeadline() {
         return payment_deadline;
     }
 
@@ -49,7 +49,7 @@ public class OrganizationConfiguration {
         return secondary_color;
     }
 
-    public String getSignatureDelegate() {
+    public Boolean getSignatureDelegate() {
         return signature_delegate;
     }
 }
