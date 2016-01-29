@@ -1,4 +1,6 @@
-package com.enxendra.huf.api.model;
+package com.enxendra.huf.api.model.customer;
+
+import com.enxendra.huf.api.model.HUFResponse;
 
 public class CustomerListResponse extends HUFResponse {
 

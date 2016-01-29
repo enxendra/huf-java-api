@@ -1,4 +1,4 @@
-package com.enxendra.huf.api.model;
+package com.enxendra.huf.api.model.organization;
 
 import java.util.List;
 

@@ -4,9 +4,9 @@ import java.util.Map;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.CustomerConfigurationResponse;
-import com.enxendra.huf.api.model.CustomerListResponse;
-import com.enxendra.huf.api.model.CustomerResponse;
+import com.enxendra.huf.api.model.customer.CustomerConfigurationResponse;
+import com.enxendra.huf.api.model.customer.CustomerListResponse;
+import com.enxendra.huf.api.model.customer.CustomerResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 

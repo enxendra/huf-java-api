@@ -1,13 +1,14 @@
-package com.enxendra.huf.api.test;
+package com.enxendra.huf.api.test.customer;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.Customer;
-import com.enxendra.huf.api.model.CustomerListResponse;
+import com.enxendra.huf.api.model.customer.Customer;
+import com.enxendra.huf.api.model.customer.CustomerListResponse;
 import com.enxendra.huf.api.service.CustomerService;
+import com.enxendra.huf.api.test.ServiceTest;
 
 public class TopCustomersTest extends ServiceTest {
 

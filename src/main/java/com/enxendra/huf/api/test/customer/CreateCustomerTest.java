@@ -1,9 +1,10 @@
-package com.enxendra.huf.api.test;
+package com.enxendra.huf.api.test.customer;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.CustomerResponse;
+import com.enxendra.huf.api.model.customer.CustomerResponse;
 import com.enxendra.huf.api.service.CustomerService;
+import com.enxendra.huf.api.test.ServiceTest;
 import com.google.gson.JsonObject;
 
 public class CreateCustomerTest extends ServiceTest {

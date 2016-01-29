@@ -1,9 +1,10 @@
-package com.enxendra.huf.api.test;
+package com.enxendra.huf.api.test.organization;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.OrganizationConfigurationResponse;
+import com.enxendra.huf.api.model.organization.OrganizationConfigurationResponse;
 import com.enxendra.huf.api.service.OrganizationService;
+import com.enxendra.huf.api.test.ServiceTest;
 
 public class GetOrganizationConfigurationTest extends ServiceTest {
 

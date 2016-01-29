@@ -2,9 +2,9 @@ package com.enxendra.huf.api.service;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.OrganizationConfigurationResponse;
-import com.enxendra.huf.api.model.OrganizationListResponse;
-import com.enxendra.huf.api.model.OrganizationResponse;
+import com.enxendra.huf.api.model.organization.OrganizationConfigurationResponse;
+import com.enxendra.huf.api.model.organization.OrganizationListResponse;
+import com.enxendra.huf.api.model.organization.OrganizationResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 

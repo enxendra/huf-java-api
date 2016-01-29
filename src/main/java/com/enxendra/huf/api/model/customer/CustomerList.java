@@ -1,4 +1,4 @@
-package com.enxendra.huf.api.model;
+package com.enxendra.huf.api.model.customer;
 
 import java.util.List;
 
