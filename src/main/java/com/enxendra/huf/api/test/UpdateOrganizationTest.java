@@ -30,7 +30,7 @@ public class UpdateOrganizationTest extends ServiceTest {
             OrganizationResponse organizationResponse = service.updateOrganization(new Long(359), body, requestOptions);
 
             if (organizationResponse.getErrorMessage() != null) {
-                System.out.println("Organización actualizada correctamente");
+                System.out.println("Organization updated");
 
             } else {
                 System.out.println("ERROR " + organizationResponse.getErrorCode() + ": "

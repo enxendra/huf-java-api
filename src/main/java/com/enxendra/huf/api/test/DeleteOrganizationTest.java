@@ -19,7 +19,7 @@ public class DeleteOrganizationTest extends ServiceTest {
                 System.out.println("ERROR " + organizationResponse.getErrorCode() + ": "
                         + organizationResponse.getErrorMessage());
             } else {
-                System.out.println("Se ha efectuado la eliminación satisfactoriamente.");
+                System.out.println("Deleted!");
             }
 
         } catch (Exception e) {
