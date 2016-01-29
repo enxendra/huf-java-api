@@ -22,14 +22,14 @@ public class UpdateOrganizationTest extends ServiceTest {
         body.addProperty("country_code", "ESP");
         body.addProperty("email", "test@test.com");
         body.addProperty("address", "Padre Pita, 10");
-        body.addProperty("tax_number", "A856038778S");
+        body.addProperty("tax_number", "0126038778S");
         body.addProperty("name", "Sopo Technologies, S.L.");
         body.addProperty("province", "A Coruña");
 
         try {
-            OrganizationResponse organizationResponse = service.updateOrganization(new Long(359), body, requestOptions);
+            OrganizationResponse organizationResponse = service.updateOrganization(new Long(363), body, requestOptions);
 
-            if (organizationResponse.getErrorMessage() != null) {
+            if (organizationResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("Organization updated");
 
             } else {

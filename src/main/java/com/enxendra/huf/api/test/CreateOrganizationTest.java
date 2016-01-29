@@ -22,14 +22,14 @@ public class CreateOrganizationTest extends ServiceTest {
         body.addProperty("country_code", "ESP");
         body.addProperty("email", "drom.gom@gmail.com");
         body.addProperty("address", "Padre Pita, 10");
-        body.addProperty("tax_number", "00038778S");
+        body.addProperty("tax_number", "011038778S");
         body.addProperty("name", "Sopo Technologies, S.L.");
         body.addProperty("province", "A Coruña");
 
         try {
             OrganizationResponse organizationResponse = service.createOrganization(body, requestOptions);
 
-            if (organizationResponse.getData() != null) {
+            if (organizationResponse.getResponseCode().equals(Constants.CREATED)) {
                 System.out.println("The new organization has the following id: "
                         + organizationResponse.getData().getId());
 

@@ -14,9 +14,9 @@ public class GetOrganizationConfigurationTest extends ServiceTest {
 
         try {
             OrganizationConfigurationResponse organizationConfigurationResponse = service
-                    .getOrganizationConfiguration(new Long(359));
+                    .getOrganizationConfiguration(new Long(363));
 
-            if (organizationConfigurationResponse.getData() != null) {
+            if (organizationConfigurationResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println(organizationConfigurationResponse.getData().getInvoiceFormat());
                 System.out.println(organizationConfigurationResponse.getData().getCurrency());
 

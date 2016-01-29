@@ -16,8 +16,9 @@ public class ListOrganizationsTest extends ServiceTest {
         try {
             OrganizationListResponse organizationListResponse = service.listOrganizations();
 
-            if (organizationListResponse.getData() != null) {
-                if (organizationListResponse.getData().getOrganizations() != null
+            if (organizationListResponse.getResponseCode().equals(Constants.OK)) {
+                if (organizationListResponse.getData() != null
+                        && organizationListResponse.getData().getOrganizations() != null
                         && organizationListResponse.getData().getOrganizations().size() > 0) {
                     for (Organization organization : organizationListResponse.getData().getOrganizations()) {
                         System.out.println(organization.getId() + ". " + organization.getName() + " - "

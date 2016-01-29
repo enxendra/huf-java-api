@@ -13,10 +13,9 @@ public class GetOrganizationTest extends ServiceTest {
         OrganizationService service = new OrganizationService(requestOptions);
 
         try {
-            // Get organization with id 27
-            OrganizationResponse organizationResponse = service.getOrganization(new Long(359));
+            OrganizationResponse organizationResponse = service.getOrganization(new Long(363));
 
-            if (organizationResponse.getData() != null) {
+            if (organizationResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println(organizationResponse.getData().getPoblation());
                 System.out.println(organizationResponse.getData().getPhone());
 

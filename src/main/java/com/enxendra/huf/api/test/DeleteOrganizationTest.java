@@ -15,7 +15,7 @@ public class DeleteOrganizationTest extends ServiceTest {
         try {
             OrganizationResponse organizationResponse = service.deleteOrganization(new Long(359));
 
-            if (organizationResponse.getErrorMessage() != null) {
+            if (organizationResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("ERROR " + organizationResponse.getErrorCode() + ": "
                         + organizationResponse.getErrorMessage());
             } else {
