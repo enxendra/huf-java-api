@@ -15,6 +15,7 @@ public class Customer {
     private String phone;
     private String email;
     private String contact_person;
+    private String export;
 
     public Long getId() {
         return id;
@@ -67,4 +68,9 @@ public class Customer {
     public String getContactPerson() {
         return contact_person;
     }
+
+    public String getExport() {
+        return export;
+    }
+
 }
