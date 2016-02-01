@@ -3,6 +3,7 @@ package com.enxendra.huf.api.test.draft;
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.model.draft.DraftItem;
+import com.enxendra.huf.api.model.draft.DraftItemResponse;
 import com.enxendra.huf.api.service.DraftService;
 import com.enxendra.huf.api.test.ServiceTest;
 import com.google.gson.Gson;
@@ -14,13 +15,15 @@ public class CreateDraftItem extends ServiceTest {
     static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST);
 
     public static void main(String[] args) {
-        DraftService service = new DraftService(requestOptions, new Long(363));
+        DraftService service = new DraftService(requestOptions, new Long(27));
 
         JsonObject body = new JsonObject();
 
         DraftItem draftItem = new DraftItem();
         draftItem.setDescription("Test");
         draftItem.setQuantity("1.0");
+        draftItem.setOrder("1");
+        draftItem.setPrice("1.0");
         JsonParser parser = new JsonParser();
         body = parser.parse((new Gson()).toJson(draftItem, DraftItem.class)).getAsJsonObject();
 
