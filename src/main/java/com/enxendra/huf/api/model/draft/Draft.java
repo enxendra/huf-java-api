@@ -2,6 +2,14 @@ package com.enxendra.huf.api.model.draft;
 
 import java.util.List;
 
+import com.enxendra.huf.api.model.shared.Charge;
+import com.enxendra.huf.api.model.shared.Discount;
+import com.enxendra.huf.api.model.shared.Item;
+import com.enxendra.huf.api.model.shared.Payment;
+import com.enxendra.huf.api.model.shared.Receiver;
+import com.enxendra.huf.api.model.shared.Sender;
+import com.enxendra.huf.api.model.shared.Tax;
+
 public class Draft {
 
     public Long id;
@@ -16,7 +24,7 @@ public class Draft {
     public String comments;
     public Sender sender;
     public Receiver receiver;
-    public List<DraftItem> items;
+    public List<Item> items;
     public List<Payment> payments;
     public List<Discount> discounts;
     public List<Charge> charges;
@@ -76,7 +84,7 @@ public class Draft {
         return receiver;
     }
 
-    public List<DraftItem> getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
@@ -168,7 +176,7 @@ public class Draft {
         this.receiver = receiver;
     }
 
-    public void setItems(List<DraftItem> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 

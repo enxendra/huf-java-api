@@ -2,8 +2,8 @@ package com.enxendra.huf.api.test.draft;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.draft.DraftItem;
 import com.enxendra.huf.api.model.draft.DraftItemListResponse;
+import com.enxendra.huf.api.model.shared.Item;
 import com.enxendra.huf.api.service.DraftService;
 import com.enxendra.huf.api.test.ServiceTest;
 
@@ -21,7 +21,7 @@ public class ListDraftItemsTest extends ServiceTest {
             if (draftItemListResponse.getResponseCode().equals(Constants.OK)) {
                 if (draftItemListResponse.getData() != null && draftItemListResponse.getData().getDraftItems() != null
                         && draftItemListResponse.getData().getDraftItems().size() > 0) {
-                    for (DraftItem draftItem : draftItemListResponse.getData().getDraftItems()) {
+                    for (Item draftItem : draftItemListResponse.getData().getDraftItems()) {
                         System.out.println(draftItem.getId() + ". " + draftItem.getDescription() + " - "
                                 + draftItem.getPrice());
                     }

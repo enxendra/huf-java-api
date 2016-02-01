@@ -2,8 +2,8 @@ package com.enxendra.huf.api.test.draft;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.draft.DraftItem;
 import com.enxendra.huf.api.model.draft.DraftItemResponse;
+import com.enxendra.huf.api.model.shared.Item;
 import com.enxendra.huf.api.service.DraftService;
 import com.enxendra.huf.api.test.ServiceTest;
 import com.google.gson.Gson;
@@ -19,13 +19,13 @@ public class UpdateDraftItem extends ServiceTest {
 
         JsonObject body = new JsonObject();
 
-        DraftItem draftItem = new DraftItem();
+        Item draftItem = new Item();
         draftItem.setDescription("Modified");
         draftItem.setQuantity("2.0");
         draftItem.setOrder("1");
         draftItem.setPrice("3.5");
         JsonParser parser = new JsonParser();
-        body = parser.parse((new Gson()).toJson(draftItem, DraftItem.class)).getAsJsonObject();
+        body = parser.parse((new Gson()).toJson(draftItem, Item.class)).getAsJsonObject();
 
         try {
             DraftItemResponse draftItemResponse = service.updateDraftItem(body, new Long(17028), new Long(1407),
