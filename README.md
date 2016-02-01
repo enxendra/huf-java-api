@@ -53,7 +53,7 @@ if (draftItemResponse.getResponseCode().equals(Constants.OK)) {
 
 ```
 
-Each service and method has its own characteristics. So additionaly to the Rest API documentation (see above), to find easy examples about how to call our API just by using this library, check the 42 operations that we have already implemented  in the package `com.enxendra.huf.api.test`:
+Each service and method has its own characteristics. So additionaly to the Rest API documentation (see above), to learn how to call our API just by using this library, check the 42 examples (one for each posible operation) that we have already implemented  in the package `com.enxendra.huf.api.test`:
 
 ### Organization operations
 
