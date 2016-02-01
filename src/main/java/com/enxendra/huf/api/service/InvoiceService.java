@@ -56,6 +56,12 @@ public class InvoiceService extends HUFService {
         return invoiceResponse;
     }
 
+    public InvoiceResponse exportInvoices(Map<String, Object> params) throws Exception {
+        JsonObject jsonResponse = callService("/export", RequestMethod.GET, params);
+        InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        return invoiceResponse;
+    }
+
     public InvoiceResponse getOriginal(Long id) throws Exception {
         JsonObject jsonResponse = callService("/" + id + "/original", RequestMethod.GET);
         InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
