@@ -11,13 +11,19 @@ public class DraftService extends HUFService {
 
     private static final String SERVICE_PATH = "drafts";
 
-    public DraftService(RequestOptions requestOptions) {
+    public DraftService(RequestOptions requestOptions, Long orgId) {
         this.requestOptions = requestOptions;
-        this.urlBase = requestOptions.getApiBase() + "/" + SERVICE_PATH;
+        this.urlBase = requestOptions.getApiBase() + "/organizations/" + orgId + "/" + SERVICE_PATH;
     }
 
     public DraftResponse getDraft(Long id) throws Exception {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.GET);
+        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        return draftResponse;
+    }
+
+    public DraftResponse sendDraft(Long id) throws Exception {
+        JsonObject jsonResponse = callService("/" + id + "/send", RequestMethod.GET);
         DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
         return draftResponse;
     }
