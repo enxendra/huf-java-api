@@ -12,6 +12,7 @@ public class OrganizationConfiguration {
     private String primary_color;
     private String secondary_color;
     private Boolean signature_delegate;
+    private String footer_texts;
 
     public String getCurrency() {
         return currency;
@@ -52,4 +53,9 @@ public class OrganizationConfiguration {
     public Boolean getSignatureDelegate() {
         return signature_delegate;
     }
+
+    public String getFooterTexts() {
+        return footer_texts;
+    }
+
 }
