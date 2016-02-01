@@ -36,6 +36,8 @@ public class Invoice {
     public String corrective_inv_series;
     public String corrective_reason_code;
     public String corrective_reason_method;
+    public String original;
+    public String pdf;
 
     public String getId() {
         return id;
@@ -227,6 +229,14 @@ public class Invoice {
 
     public void setCorrectiveReasonMethod(String corrective_reason_method) {
         this.corrective_reason_method = corrective_reason_method;
+    }
+
+    public String getOriginal() {
+        return original;
+    }
+
+    public String getPdf() {
+        return pdf;
     }
 
 }
