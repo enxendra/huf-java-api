@@ -14,7 +14,7 @@ public class GetInvoiceTest extends ServiceTest {
         InvoiceService service = new InvoiceService(requestOptions, new Long(27));
 
         try {
-            InvoiceResponse invoiceResponse = service.getInvoice(new Long(4452));
+            InvoiceResponse invoiceResponse = service.getInvoice(new Long(484));
 
             if (invoiceResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println(invoiceResponse.getData().getNumber());
