@@ -25,10 +25,10 @@ After that, you can create an instance of one of the four services (`InvoiceServ
 ### Available services
 ```
 
-/Users/xmunch/Documents/workspace-sts-3.6.3.RELEASE/java-api/src/main/java/com/enxendra/huf/api/service/InvoiceService.java
-/Users/xmunch/Documents/workspace-sts-3.6.3.RELEASE/java-api/src/main/java/com/enxendra/huf/api/service/DraftService.java
-/Users/xmunch/Documents/workspace-sts-3.6.3.RELEASE/java-api/src/main/java/com/enxendra/huf/api/service/OrganizationService.java
-/Users/xmunch/Documents/workspace-sts-3.6.3.RELEASE/java-api/src/main/java/com/enxendra/huf/api/service/CustomerService.java
+src/main/java/com/enxendra/huf/api/service/InvoiceService.java
+src/main/java/com/enxendra/huf/api/service/DraftService.java
+src/main/java/com/enxendra/huf/api/service/OrganizationService.java
+src/main/java/com/enxendra/huf/api/service/CustomerService.java
 
 ```
 
@@ -58,28 +58,28 @@ Each service and method has its own characteristics. So additionaly to the Rest 
 ### Organization operations
 
 ```
-/java-api/src/main/java/com/enxendra/huf/api/test/organization/CreateOrganizationTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/organization/DeleteOrganizationTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/organization/GetOrganizationConfigurationTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/organization/GetOrganizationTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/organization/ListOrganizationsTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/organization/UpdateOrganizationConfigurationTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/organization/UpdateOrganizationTest.java
+/src/main/java/com/enxendra/huf/api/test/organization/CreateOrganizationTest.java
+/src/main/java/com/enxendra/huf/api/test/organization/DeleteOrganizationTest.java
+/src/main/java/com/enxendra/huf/api/test/organization/GetOrganizationConfigurationTest.java
+/src/main/java/com/enxendra/huf/api/test/organization/GetOrganizationTest.java
+/src/main/java/com/enxendra/huf/api/test/organization/ListOrganizationsTest.java
+/src/main/java/com/enxendra/huf/api/test/organization/UpdateOrganizationConfigurationTest.java
+/src/main/java/com/enxendra/huf/api/test/organization/UpdateOrganizationTest.java
 
 ```
 
 ### Invoice operations
 
 ```
-/java-api/src/main/java/com/enxendra/huf/api/test/invoice/DeleteInvoiceTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/invoice/ExportInvoiceTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/invoice/GetInvoiceAttachmentTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/invoice/GetInvoiceTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/invoice/GetOriginalInvoiceTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/invoice/GetPdfInvoiceTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/invoice/ListInvoiceAttachmentsTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/invoice/ListInvoicesTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/invoice/UpdateInvoiceStateTest.java
+/src/main/java/com/enxendra/huf/api/test/invoice/DeleteInvoiceTest.java
+/src/main/java/com/enxendra/huf/api/test/invoice/ExportInvoiceTest.java
+/src/main/java/com/enxendra/huf/api/test/invoice/GetInvoiceAttachmentTest.java
+/src/main/java/com/enxendra/huf/api/test/invoice/GetInvoiceTest.java
+/src/main/java/com/enxendra/huf/api/test/invoice/GetOriginalInvoiceTest.java
+/src/main/java/com/enxendra/huf/api/test/invoice/GetPdfInvoiceTest.java
+/src/main/java/com/enxendra/huf/api/test/invoice/ListInvoiceAttachmentsTest.java
+/src/main/java/com/enxendra/huf/api/test/invoice/ListInvoicesTest.java
+/src/main/java/com/enxendra/huf/api/test/invoice/UpdateInvoiceStateTest.java
 
 ```
 
@@ -87,38 +87,38 @@ Each service and method has its own characteristics. So additionaly to the Rest 
 
 ```
 
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/CreateDraftItem.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/CreateDraftTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/DeleteDraftAttachmentTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/DeleteDraftItem.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/DeleteDraftTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/GetDraftAttachmentTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/GetDraftItemTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/GetDraftTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/ListDraftAttachmentsTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/ListDraftItemsTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/ListDraftsTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/PreviewDraftTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/SendDraftTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/UpdateDraftItem.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/UpdateDraftTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/UploadDraftAttachmentTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/draft/ValidateDraftTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/CreateDraftItem.java
+/src/main/java/com/enxendra/huf/api/test/draft/CreateDraftTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/DeleteDraftAttachmentTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/DeleteDraftItem.java
+/src/main/java/com/enxendra/huf/api/test/draft/DeleteDraftTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/GetDraftAttachmentTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/GetDraftItemTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/GetDraftTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/ListDraftAttachmentsTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/ListDraftItemsTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/ListDraftsTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/PreviewDraftTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/SendDraftTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/UpdateDraftItem.java
+/src/main/java/com/enxendra/huf/api/test/draft/UpdateDraftTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/UploadDraftAttachmentTest.java
+/src/main/java/com/enxendra/huf/api/test/draft/ValidateDraftTest.java
 
 ```
 
 ### Customer operations:
 
 ```
-/java-api/src/main/java/com/enxendra/huf/api/test/customer/CreateCustomerTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/customer/DeleteCustomerTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/customer/ExportCustomersTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/customer/GetCustomerConfigurationTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/customer/GetCustomerTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/customer/ListCustomersTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/customer/TopCustomersTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/customer/UpdateCustomerConfigurationTest.java
-/java-api/src/main/java/com/enxendra/huf/api/test/customer/UpdateCustomerTest.java
+/src/main/java/com/enxendra/huf/api/test/customer/CreateCustomerTest.java
+/src/main/java/com/enxendra/huf/api/test/customer/DeleteCustomerTest.java
+/src/main/java/com/enxendra/huf/api/test/customer/ExportCustomersTest.java
+/src/main/java/com/enxendra/huf/api/test/customer/GetCustomerConfigurationTest.java
+/src/main/java/com/enxendra/huf/api/test/customer/GetCustomerTest.java
+/src/main/java/com/enxendra/huf/api/test/customer/ListCustomersTest.java
+/src/main/java/com/enxendra/huf/api/test/customer/TopCustomersTest.java
+/src/main/java/com/enxendra/huf/api/test/customer/UpdateCustomerConfigurationTest.java
+/src/main/java/com/enxendra/huf/api/test/customer/UpdateCustomerTest.java
 
 ```
 
