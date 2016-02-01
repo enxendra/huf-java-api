@@ -4,6 +4,7 @@ import java.util.List;
 
 public class DraftItem {
 
+    public Long id;
     public String order;
     public String description;
     public String quantity;
@@ -183,6 +184,14 @@ public class DraftItem {
 
     public void setTaxes(List<Tax> taxes) {
         this.taxes = taxes;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }
