@@ -18,4 +18,16 @@ public class Discount {
         return amount;
     }
 
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
 }

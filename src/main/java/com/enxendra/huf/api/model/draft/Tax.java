@@ -23,4 +23,20 @@ public class Tax {
         return tax_type;
     }
 
+    public void setTax_base(String tax_base) {
+        this.tax_base = tax_base;
+    }
+
+    public void setTax_rate(String tax_rate) {
+        this.tax_rate = tax_rate;
+    }
+
+    public void setTax_amount(String tax_amount) {
+        this.tax_amount = tax_amount;
+    }
+
+    public void setTax_type(String tax_type) {
+        this.tax_type = tax_type;
+    }
+
 }

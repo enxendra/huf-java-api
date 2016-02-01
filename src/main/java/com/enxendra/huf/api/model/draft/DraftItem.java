@@ -105,4 +105,84 @@ public class DraftItem {
         return taxes;
     }
 
+    public void setOrder(String order) {
+        this.order = order;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setUnit_of_measure(String unit_of_measure) {
+        this.unit_of_measure = unit_of_measure;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setTotal_cost(String total_cost) {
+        this.total_cost = total_cost;
+    }
+
+    public void setGross_amount(String gross_amount) {
+        this.gross_amount = gross_amount;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public void setArticle_code(String article_code) {
+        this.article_code = article_code;
+    }
+
+    public void setDelivery_note_number(String delivery_note_number) {
+        this.delivery_note_number = delivery_note_number;
+    }
+
+    public void setDelivery_note_date(String delivery_note_date) {
+        this.delivery_note_date = delivery_note_date;
+    }
+
+    public void setTransaction_date(String transaction_date) {
+        this.transaction_date = transaction_date;
+    }
+
+    public void setPeriod_start_date(String period_start_date) {
+        this.period_start_date = period_start_date;
+    }
+
+    public void setPeriod_end_date(String period_end_date) {
+        this.period_end_date = period_end_date;
+    }
+
+    public void setContract_reference(String contract_reference) {
+        this.contract_reference = contract_reference;
+    }
+
+    public void setTransaction_reference(String transaction_reference) {
+        this.transaction_reference = transaction_reference;
+    }
+
+    public void setFile_reference(String file_reference) {
+        this.file_reference = file_reference;
+    }
+
+    public void setDiscounts(List<Discount> discounts) {
+        this.discounts = discounts;
+    }
+
+    public void setCharges(List<Charge> charges) {
+        this.charges = charges;
+    }
+
+    public void setTaxes(List<Tax> taxes) {
+        this.taxes = taxes;
+    }
+
 }
