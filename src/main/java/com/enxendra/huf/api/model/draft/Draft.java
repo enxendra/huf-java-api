@@ -120,4 +120,96 @@ public class Draft {
         return corrective_reason_method;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setSeries(String series) {
+        this.series = series;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setTotal_cost(String total_cost) {
+        this.total_cost = total_cost;
+    }
+
+    public void setGross_amount(String gross_amount) {
+        this.gross_amount = gross_amount;
+    }
+
+    public void setTotal_to_pay(String total_to_pay) {
+        this.total_to_pay = total_to_pay;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public void setSender(Sender sender) {
+        this.sender = sender;
+    }
+
+    public void setReceiver(Receiver receiver) {
+        this.receiver = receiver;
+    }
+
+    public void setItems(List<DraftItem> items) {
+        this.items = items;
+    }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
+
+    public void setDiscounts(List<Discount> discounts) {
+        this.discounts = discounts;
+    }
+
+    public void setCharges(List<Charge> charges) {
+        this.charges = charges;
+    }
+
+    public void setTaxes(List<Tax> taxes) {
+        this.taxes = taxes;
+    }
+
+    public void setExchange_rate(String exchange_rate) {
+        this.exchange_rate = exchange_rate;
+    }
+
+    public void setInvoice_type(String invoice_type) {
+        this.invoice_type = invoice_type;
+    }
+
+    public void setCorrective_inv_number(String corrective_inv_number) {
+        this.corrective_inv_number = corrective_inv_number;
+    }
+
+    public void setCorrective_inv_series(String corrective_inv_series) {
+        this.corrective_inv_series = corrective_inv_series;
+    }
+
+    public void setCorrective_reason_code(String corrective_reason_code) {
+        this.corrective_reason_code = corrective_reason_code;
+    }
+
+    public void setCorrective_reason_method(String corrective_reason_method) {
+        this.corrective_reason_method = corrective_reason_method;
+    }
+
 }
