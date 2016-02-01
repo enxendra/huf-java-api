@@ -2,6 +2,8 @@ package com.enxendra.huf.api.service;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.model.draft.DraftAttachmentListResponse;
+import com.enxendra.huf.api.model.draft.DraftAttachmentResponse;
 import com.enxendra.huf.api.model.draft.DraftListResponse;
 import com.enxendra.huf.api.model.draft.DraftResponse;
 import com.google.gson.Gson;
@@ -52,4 +54,31 @@ public class DraftService extends HUFService {
         return draftListResponse;
     }
 
+    public DraftAttachmentResponse uploadDraftAttachment(JsonObject body, Long draftId, RequestOptions requestOptions)
+            throws Exception {
+        JsonObject jsonResponse = callService("/" + draftId + "/attachments", RequestMethod.POST, body);
+        DraftAttachmentResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftAttachmentResponse.class);
+        return draftResponse;
+    }
+
+    public DraftAttachmentListResponse listDraftAttachments(Long draftId) throws Exception {
+        JsonObject jsonResponse = callService("/" + draftId + "/attachments", RequestMethod.GET);
+        DraftAttachmentListResponse draftAttachmentListResponse = (new Gson()).fromJson(jsonResponse,
+                DraftAttachmentListResponse.class);
+        return draftAttachmentListResponse;
+    }
+
+    public DraftAttachmentResponse getDraftAttachment(Long draftId, Long id) throws Exception {
+        JsonObject jsonResponse = callService("/" + draftId + "/attachments/" + id, RequestMethod.GET);
+        DraftAttachmentResponse draftAttachmentResponse = (new Gson()).fromJson(jsonResponse,
+                DraftAttachmentResponse.class);
+        return draftAttachmentResponse;
+    }
+
+    public DraftAttachmentResponse deleteDraftAttachment(Long draftId, Long id) throws Exception {
+        JsonObject jsonResponse = callService("/" + draftId + "/attachments/" + id, RequestMethod.DELETE);
+        DraftAttachmentResponse draftAttachmentResponse = (new Gson()).fromJson(jsonResponse,
+                DraftAttachmentResponse.class);
+        return draftAttachmentResponse;
+    }
 }
