@@ -21,7 +21,7 @@ public class CreateDraftTest extends ServiceTest {
         try {
             DraftResponse draftResponse = service.createDraft(body, requestOptions);
 
-            if (draftResponse.getResponseCode().equals(Constants.CREATED)) {
+            if (draftResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new draft has the following id: " + draftResponse.getData().getId());
 
             } else {

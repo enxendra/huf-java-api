@@ -14,5 +14,5 @@ public class Constants {
     public static final String CLIENT_VERSION = "Client-version";
 
     public static final String OK = "200";
-    public static final Object CREATED = "201";
+    public static final String CREATED_OR_UPDATED = "201";
 }

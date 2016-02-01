@@ -30,7 +30,7 @@ public class CreateDraftItem extends ServiceTest {
         try {
             DraftItemResponse draftItemResponse = service.createDraftItem(body, new Long(17028), requestOptions);
 
-            if (draftItemResponse.getResponseCode().equals(Constants.CREATED)) {
+            if (draftItemResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new draftItem has the following id: " + draftItemResponse.getData().getId());
 
             } else {

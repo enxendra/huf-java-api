@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Item {
 
-    public Long id;
+    public String id;
     public String order;
     public String description;
     public String quantity;
@@ -186,11 +186,11 @@ public class Item {
         this.taxes = taxes;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

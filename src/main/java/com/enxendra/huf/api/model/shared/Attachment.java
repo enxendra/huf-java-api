@@ -1,6 +1,6 @@
-package com.enxendra.huf.api.model.draft;
+package com.enxendra.huf.api.model.shared;
 
-public class DraftAttachment {
+public class Attachment {
 
     public Long id;
     public String content;

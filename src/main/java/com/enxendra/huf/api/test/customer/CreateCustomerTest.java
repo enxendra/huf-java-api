@@ -32,7 +32,7 @@ public class CreateCustomerTest extends ServiceTest {
         try {
             CustomerResponse customerResponse = service.createCustomer(body, requestOptions);
 
-            if (customerResponse.getResponseCode().equals(Constants.CREATED)) {
+            if (customerResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new customer has the following id: " + customerResponse.getData().getId());
 
             } else {

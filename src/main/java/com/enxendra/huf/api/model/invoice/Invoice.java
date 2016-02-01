@@ -1,4 +1,4 @@
-package com.enxendra.api.model.invoice;
+package com.enxendra.huf.api.model.invoice;
 
 import java.util.List;
 
@@ -12,9 +12,8 @@ import com.enxendra.huf.api.model.shared.Tax;
 
 public class Invoice {
 
-    public Long id;
+    public String id;
     public String delivery_code;
-    public List<String> history;
     public String number;
     public String series;
     public String date;
@@ -38,11 +37,11 @@ public class Invoice {
     public String corrective_reason_code;
     public String corrective_reason_method;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -52,14 +51,6 @@ public class Invoice {
 
     public void setDeliveryCode(String delivery_code) {
         this.delivery_code = delivery_code;
-    }
-
-    public List<String> getHistory() {
-        return history;
-    }
-
-    public void setHistory(List<String> history) {
-        this.history = history;
     }
 
     public String getNumber() {

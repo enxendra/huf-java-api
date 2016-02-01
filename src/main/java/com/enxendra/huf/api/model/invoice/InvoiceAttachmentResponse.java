@@ -1,9 +1,9 @@
-package com.enxendra.huf.api.model.draft;
+package com.enxendra.huf.api.model.invoice;
 
 import com.enxendra.huf.api.model.HUFResponse;
 import com.enxendra.huf.api.model.shared.Attachment;
 
-public class DraftAttachmentResponse extends HUFResponse {
+public class InvoiceAttachmentResponse extends HUFResponse {
 
     public Attachment data;
 

@@ -2,8 +2,8 @@ package com.enxendra.huf.api.test.draft;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.draft.DraftAttachment;
 import com.enxendra.huf.api.model.draft.DraftAttachmentListResponse;
+import com.enxendra.huf.api.model.shared.Attachment;
 import com.enxendra.huf.api.service.DraftService;
 import com.enxendra.huf.api.test.ServiceTest;
 
@@ -22,7 +22,7 @@ public class ListDraftAttachmentsTest extends ServiceTest {
                 if (draftAttachmentListResponse.getData() != null
                         && draftAttachmentListResponse.getData().getAttachments() != null
                         && draftAttachmentListResponse.getData().getAttachments().size() > 0) {
-                    for (DraftAttachment draftAttachment : draftAttachmentListResponse.getData().getAttachments()) {
+                    for (Attachment draftAttachment : draftAttachmentListResponse.getData().getAttachments()) {
                         System.out.println(draftAttachment.getId() + ". " + draftAttachment.getName() + " - "
                                 + draftAttachment.getMime());
                     }

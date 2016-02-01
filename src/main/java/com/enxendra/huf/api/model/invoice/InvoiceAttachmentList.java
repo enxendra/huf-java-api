@@ -1,10 +1,10 @@
-package com.enxendra.huf.api.model.draft;
+package com.enxendra.huf.api.model.invoice;
 
 import java.util.List;
 
 import com.enxendra.huf.api.model.shared.Attachment;
 
-public class DraftAttachmentList {
+public class InvoiceAttachmentList {
 
     private List<Attachment> attachments;
 

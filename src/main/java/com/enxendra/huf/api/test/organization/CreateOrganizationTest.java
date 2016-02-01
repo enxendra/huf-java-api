@@ -30,7 +30,7 @@ public class CreateOrganizationTest extends ServiceTest {
         try {
             OrganizationResponse organizationResponse = service.createOrganization(body, requestOptions);
 
-            if (organizationResponse.getResponseCode().equals(Constants.CREATED)) {
+            if (organizationResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new organization has the following id: "
                         + organizationResponse.getData().getId());
 
