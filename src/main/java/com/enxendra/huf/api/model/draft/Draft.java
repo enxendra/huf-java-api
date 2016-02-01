@@ -1,6 +1,7 @@
 package com.enxendra.huf.api.model.draft;
 
 import java.util.List;
+import java.util.Map;
 
 import com.enxendra.huf.api.model.shared.Charge;
 import com.enxendra.huf.api.model.shared.Discount;
@@ -37,7 +38,7 @@ public class Draft {
     public String corrective_reason_method;
     private String preview;
     private String is_valid;
-    private Object invoice_errors;
+    private Map<String, String> invoice_errors;
 
     public Long getId() {
         return id;
@@ -231,7 +232,7 @@ public class Draft {
         return this.is_valid;
     }
 
-    public Object getInvoiceErrors() {
+    public Map<String, String> getInvoiceErrors() {
         return this.invoice_errors;
     }
 

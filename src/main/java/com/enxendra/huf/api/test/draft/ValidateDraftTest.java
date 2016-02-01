@@ -1,5 +1,8 @@
 package com.enxendra.huf.api.test.draft;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.model.draft.DraftResponse;
@@ -18,8 +21,14 @@ public class ValidateDraftTest extends ServiceTest {
 
             if (draftResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println(draftResponse.getData().getIsValid());
-                System.out.println(draftResponse.getData().getInvoiceErrors());
+                Map<String, String> errors = draftResponse.getData().getInvoiceErrors();
+                if (draftResponse.getData().getInvoiceErrors() != null) {
+                    System.out.println("Errores de validación:");
+                    for (Entry<String, String> entry : draftResponse.getData().getInvoiceErrors().entrySet()) {
+                        System.out.println(entry.getKey() + ": " + entry.getValue());
+                    }
 
+                }
             } else {
                 System.out.println("ERROR " + draftResponse.getErrorCode() + ": " + draftResponse.getErrorMessage());
             }
