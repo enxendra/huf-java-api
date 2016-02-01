@@ -23,7 +23,7 @@ public class CreateCustomerTest extends ServiceTest {
         body.addProperty("country_code", "ESP");
         body.addProperty("email", "drom@test.com");
         body.addProperty("address", "Padre Pita, 110");
-        body.addProperty("tax_number", "1023103808S");
+        body.addProperty("tax_number", "0231038S");
         body.addProperty("name", "Pedro");
         body.addProperty("first_surname", "Gonzalez");
         body.addProperty("second_surname", "Rodriguez");
