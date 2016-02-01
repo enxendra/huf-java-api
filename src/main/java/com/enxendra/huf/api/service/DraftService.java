@@ -32,6 +32,18 @@ public class DraftService extends HUFService {
         return draftResponse;
     }
 
+    public DraftResponse previewDraft(Long id) throws Exception {
+        JsonObject jsonResponse = callService("/" + id + "/preview", RequestMethod.GET);
+        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        return draftResponse;
+    }
+
+    public DraftResponse validateDraft(Long id) throws Exception {
+        JsonObject jsonResponse = callService("/" + id + "/validate", RequestMethod.GET);
+        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        return draftResponse;
+    }
+
     public DraftResponse createDraft(JsonObject body, RequestOptions requestOptions) throws Exception {
         JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
         DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
