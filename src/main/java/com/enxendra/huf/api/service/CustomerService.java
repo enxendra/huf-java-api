@@ -49,6 +49,12 @@ public class CustomerService extends HUFService {
         return customerListResponse;
     }
 
+    public CustomerResponse exportCustomers(Map<String, Object> params) throws Exception {
+        JsonObject jsonResponse = callService("/export", RequestMethod.GET, params);
+        CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
+        return customerResponse;
+    }
+
     public CustomerListResponse topCustomers(Map<String, Object> params) throws Exception {
         JsonObject jsonResponse = callService("/top", RequestMethod.GET, params);
         CustomerListResponse customerListResponse = (new Gson()).fromJson(jsonResponse, CustomerListResponse.class);
