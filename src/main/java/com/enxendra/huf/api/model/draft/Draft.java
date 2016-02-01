@@ -35,6 +35,9 @@ public class Draft {
     public String corrective_inv_series;
     public String corrective_reason_code;
     public String corrective_reason_method;
+    private String preview;
+    private String is_valid;
+    private Object invoice_errors;
 
     public Long getId() {
         return id;
@@ -218,6 +221,18 @@ public class Draft {
 
     public void setCorrective_reason_method(String corrective_reason_method) {
         this.corrective_reason_method = corrective_reason_method;
+    }
+
+    public String getPreview() {
+        return this.preview;
+    }
+
+    public String getIsValid() {
+        return this.is_valid;
+    }
+
+    public Object getInvoiceErrors() {
+        return this.invoice_errors;
     }
 
 }
