@@ -38,6 +38,7 @@ public class Invoice {
     public String corrective_reason_method;
     public String original;
     public String pdf;
+    public String export;
 
     public String getId() {
         return id;
@@ -237,6 +238,10 @@ public class Invoice {
 
     public String getPdf() {
         return pdf;
+    }
+
+    public String getExport() {
+        return export;
     }
 
 }
