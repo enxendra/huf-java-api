@@ -1,10 +1,10 @@
 # HUF Java API
 
-**This Java library enables the use of the HUF (HazteUnaFacturae.com) services by external applications.**
+**This Java library enables the use of the HUF (http://premium.hazteunafacturae.com) services by external applications.**
 
 ## Description
 
-This library provides a Java API to connect with the Rest API of HazteUnaFacturae (http://premium.hazteUnaFacturae.com) and use all is services.
+This library provides a Java API to connect with the Rest API of HazteUnaFacturae (http://premium.hazteunafacturae.com) and use all is services.
 
 It requires a valid API Key and the endpoint of the instance which will be used by the client. To get your API Key and the proper URL contact to Enxendra Technologies.
 
@@ -125,4 +125,4 @@ Each service and method has its own characteristics. So additionaly to the Rest 
 
 
 
-* More info: dev (at) enxendra.com
+* More info: it (at) enxendra.com
