@@ -28,7 +28,7 @@ public class CreateOrganizationTest extends ServiceTest {
         body.addProperty("province", "A Coruña");
 
         try {
-            OrganizationResponse organizationResponse = service.createOrganization(body, requestOptions);
+            OrganizationResponse organizationResponse = service.createOrganization(body);
 
             if (organizationResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new organization has the following id: "

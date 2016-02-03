@@ -28,7 +28,7 @@ public class CreateDraftItem extends ServiceTest {
         body = parser.parse((new Gson()).toJson(draftItem, Item.class)).getAsJsonObject();
 
         try {
-            DraftItemResponse draftItemResponse = service.createDraftItem(body, new Long(17028), requestOptions);
+            DraftItemResponse draftItemResponse = service.createDraftItem(body, new Long(17028));
 
             if (draftItemResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new draftItem has the following id: " + draftItemResponse.getData().getId());

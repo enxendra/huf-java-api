@@ -25,7 +25,7 @@ public class UpdateInvoiceStateTest extends ServiceTest {
         body = parser.parse((new Gson()).toJson(invoice, Invoice.class)).getAsJsonObject();
 
         try {
-            InvoiceResponse customerResponse = service.updateInvoiceState(new Long(4452), body, requestOptions);
+            InvoiceResponse customerResponse = service.updateInvoiceState(new Long(4452), body);
 
             if (customerResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("Invoice updated");

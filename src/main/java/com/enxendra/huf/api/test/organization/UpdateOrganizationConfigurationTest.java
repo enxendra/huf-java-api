@@ -29,7 +29,7 @@ public class UpdateOrganizationConfigurationTest extends ServiceTest {
 
         try {
             OrganizationConfigurationResponse organizationConfigurationResponse = service
-                    .updateOrganizationConfiguration(new Long(363), body, requestOptions);
+                    .updateOrganizationConfiguration(new Long(363), body);
 
             if (organizationConfigurationResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("OrganizationConfiguration updated");

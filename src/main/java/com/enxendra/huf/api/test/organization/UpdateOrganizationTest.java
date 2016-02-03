@@ -28,7 +28,7 @@ public class UpdateOrganizationTest extends ServiceTest {
         body.addProperty("province", "A Coruña");
 
         try {
-            OrganizationResponse organizationResponse = service.updateOrganization(new Long(363), body, requestOptions);
+            OrganizationResponse organizationResponse = service.updateOrganization(new Long(363), body);
 
             if (organizationResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("Organization updated");

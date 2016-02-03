@@ -28,8 +28,7 @@ public class UpdateDraftItem extends ServiceTest {
         body = parser.parse((new Gson()).toJson(draftItem, Item.class)).getAsJsonObject();
 
         try {
-            DraftItemResponse draftItemResponse = service.updateDraftItem(body, new Long(17028), new Long(1407),
-                    requestOptions);
+            DraftItemResponse draftItemResponse = service.updateDraftItem(body, new Long(17028), new Long(1407));
 
             if (draftItemResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("The item has been updated");

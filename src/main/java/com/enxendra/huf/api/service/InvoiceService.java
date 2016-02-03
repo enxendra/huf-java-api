@@ -26,7 +26,7 @@ public class InvoiceService extends HUFService {
         return invoiceResponse;
     }
 
-    public InvoiceResponse updateInvoiceState(Long id, JsonObject body, RequestOptions requestOptions) throws Exception {
+    public InvoiceResponse updateInvoiceState(Long id, JsonObject body) throws Exception {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
         InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
         return invoiceResponse;

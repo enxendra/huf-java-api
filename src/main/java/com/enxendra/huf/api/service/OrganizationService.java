@@ -23,14 +23,13 @@ public class OrganizationService extends HUFService {
         return organizationResponse;
     }
 
-    public OrganizationResponse createOrganization(JsonObject body, RequestOptions requestOptions) throws Exception {
+    public OrganizationResponse createOrganization(JsonObject body) throws Exception {
         JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
         OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
         return organizationResponse;
     }
 
-    public OrganizationResponse updateOrganization(Long id, JsonObject body, RequestOptions requestOptions)
-            throws Exception {
+    public OrganizationResponse updateOrganization(Long id, JsonObject body) throws Exception {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
         OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
         return organizationResponse;
@@ -56,8 +55,7 @@ public class OrganizationService extends HUFService {
         return organizationConfigurationResponse;
     }
 
-    public OrganizationConfigurationResponse updateOrganizationConfiguration(Long id, JsonObject body,
-            RequestOptions requestOptions) throws Exception {
+    public OrganizationConfigurationResponse updateOrganizationConfiguration(Long id, JsonObject body) throws Exception {
         JsonObject jsonResponse = callService("/" + id + "/configuration", RequestMethod.PUT, body);
         OrganizationConfigurationResponse organizationConfigurationResponse = (new Gson()).fromJson(jsonResponse,
                 OrganizationConfigurationResponse.class);

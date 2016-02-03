@@ -28,7 +28,7 @@ public class UpdateCustomerTest extends ServiceTest {
         body.addProperty("province", "A Coruña");
 
         try {
-            CustomerResponse customerResponse = service.updateCustomer(new Long(1145), body, requestOptions);
+            CustomerResponse customerResponse = service.updateCustomer(new Long(1145), body);
 
             if (customerResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("Customer updated");

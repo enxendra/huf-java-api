@@ -23,8 +23,7 @@ public class UploadDraftAttachmentTest extends ServiceTest {
         body.addProperty("name", "connection3.jpg");
 
         try {
-            DraftAttachmentResponse draftAttachmentResponse = service.uploadDraftAttachment(body, new Long(17028),
-                    requestOptions);
+            DraftAttachmentResponse draftAttachmentResponse = service.uploadDraftAttachment(body, new Long(17028));
 
             if (draftAttachmentResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("The new draftAttachment has been uploaded!"

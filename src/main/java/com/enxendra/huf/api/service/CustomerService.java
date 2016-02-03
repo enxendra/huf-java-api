@@ -25,13 +25,13 @@ public class CustomerService extends HUFService {
         return customerResponse;
     }
 
-    public CustomerResponse createCustomer(JsonObject body, RequestOptions requestOptions) throws Exception {
+    public CustomerResponse createCustomer(JsonObject body) throws Exception {
         JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
         CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
         return customerResponse;
     }
 
-    public CustomerResponse updateCustomer(Long id, JsonObject body, RequestOptions requestOptions) throws Exception {
+    public CustomerResponse updateCustomer(Long id, JsonObject body) throws Exception {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
         CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
         return customerResponse;
@@ -68,8 +68,7 @@ public class CustomerService extends HUFService {
         return customerConfigurationResponse;
     }
 
-    public CustomerConfigurationResponse updateCustomerConfiguration(Long id, JsonObject body,
-            RequestOptions requestOptions) throws Exception {
+    public CustomerConfigurationResponse updateCustomerConfiguration(Long id, JsonObject body) throws Exception {
         JsonObject jsonResponse = callService("/" + id + "/configuration", RequestMethod.PUT, body);
         CustomerConfigurationResponse customerConfigurationResponse = (new Gson()).fromJson(jsonResponse,
                 CustomerConfigurationResponse.class);

@@ -14,8 +14,7 @@ public class DeleteDraftItem extends ServiceTest {
         DraftService service = new DraftService(requestOptions, new Long(27));
 
         try {
-            DraftItemResponse draftItemResponse = service.deleteDraftItem(new Long(17028), new Long(1407),
-                    requestOptions);
+            DraftItemResponse draftItemResponse = service.deleteDraftItem(new Long(17028), new Long(1407));
 
             if (draftItemResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("The item has been deleted");

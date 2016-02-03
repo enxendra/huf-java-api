@@ -19,7 +19,7 @@ public class CreateDraftTest extends ServiceTest {
         body.addProperty("cusId", "1145");
 
         try {
-            DraftResponse draftResponse = service.createDraft(body, requestOptions);
+            DraftResponse draftResponse = service.createDraft(body);
 
             if (draftResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new draft has the following id: " + draftResponse.getData().getId());

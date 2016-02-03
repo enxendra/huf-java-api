@@ -29,7 +29,7 @@ public class UpdateCustomerConfigurationTest extends ServiceTest {
 
         try {
             CustomerConfigurationResponse customerConfigurationResponse = service.updateCustomerConfiguration(new Long(
-                    1148), body, requestOptions);
+                    1148), body);
 
             if (customerConfigurationResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("CustomerConfiguration updated");

@@ -44,13 +44,13 @@ public class DraftService extends HUFService {
         return draftResponse;
     }
 
-    public DraftResponse createDraft(JsonObject body, RequestOptions requestOptions) throws Exception {
+    public DraftResponse createDraft(JsonObject body) throws Exception {
         JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
         DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
         return draftResponse;
     }
 
-    public DraftResponse updateDraft(Long id, JsonObject body, RequestOptions requestOptions) throws Exception {
+    public DraftResponse updateDraft(Long id, JsonObject body) throws Exception {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
         DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
         return draftResponse;
@@ -68,8 +68,7 @@ public class DraftService extends HUFService {
         return draftListResponse;
     }
 
-    public DraftAttachmentResponse uploadDraftAttachment(JsonObject body, Long draftId, RequestOptions requestOptions)
-            throws Exception {
+    public DraftAttachmentResponse uploadDraftAttachment(JsonObject body, Long draftId) throws Exception {
         JsonObject jsonResponse = callService("/" + draftId + "/attachments", RequestMethod.POST, body);
         DraftAttachmentResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftAttachmentResponse.class);
         return draftResponse;
@@ -96,8 +95,7 @@ public class DraftService extends HUFService {
         return draftAttachmentResponse;
     }
 
-    public DraftItemResponse createDraftItem(JsonObject body, Long draftId, RequestOptions requestOptions)
-            throws Exception {
+    public DraftItemResponse createDraftItem(JsonObject body, Long draftId) throws Exception {
         JsonObject jsonResponse = callService("/" + draftId + "/items", RequestMethod.POST, body);
         DraftItemResponse draftItemResponse = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
         return draftItemResponse;
@@ -115,14 +113,13 @@ public class DraftService extends HUFService {
         return draftItemListResponse;
     }
 
-    public DraftItemResponse updateDraftItem(JsonObject body, Long draftId, Long id, RequestOptions requestOptions)
-            throws Exception {
+    public DraftItemResponse updateDraftItem(JsonObject body, Long draftId, Long id) throws Exception {
         JsonObject jsonResponse = callService("/" + draftId + "/items/" + id, RequestMethod.PUT, body);
         DraftItemResponse draftItemResponse = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
         return draftItemResponse;
     }
 
-    public DraftItemResponse deleteDraftItem(Long draftId, Long id, RequestOptions requestOptions) throws Exception {
+    public DraftItemResponse deleteDraftItem(Long draftId, Long id) throws Exception {
         JsonObject jsonResponse = callService("/" + draftId + "/items/" + id, RequestMethod.DELETE);
         DraftItemResponse draftItemResponse = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
         return draftItemResponse;

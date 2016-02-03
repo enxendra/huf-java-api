@@ -30,7 +30,7 @@ public class CreateCustomerTest extends ServiceTest {
         body.addProperty("province", "A Coruña");
 
         try {
-            CustomerResponse customerResponse = service.createCustomer(body, requestOptions);
+            CustomerResponse customerResponse = service.createCustomer(body);
 
             if (customerResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new customer has the following id: " + customerResponse.getData().getId());
