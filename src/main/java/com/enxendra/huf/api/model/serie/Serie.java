@@ -7,11 +7,11 @@ public class Serie {
     private String code;
     private String prefix;
     private String suffix;
-    private String fillLeft;
+    private String fill_left;
     private String numbering;
-    private String defaultSeries;
-    private String rebootYear;
-    private String nextNumber;
+    private String default_series;
+    private String reboot_year;
+    private String next_number;
 
     public Long getId() {
         return id;
@@ -54,11 +54,11 @@ public class Serie {
     }
 
     public String getFillLeft() {
-        return fillLeft;
+        return fill_left;
     }
 
     public void setFillLeft(String fillLeft) {
-        this.fillLeft = fillLeft;
+        this.fill_left = fillLeft;
     }
 
     public String getNumbering() {
@@ -70,27 +70,27 @@ public class Serie {
     }
 
     public String getDefaultSeries() {
-        return defaultSeries;
+        return default_series;
     }
 
     public void setDefaultSeries(String defaultSeries) {
-        this.defaultSeries = defaultSeries;
+        this.default_series = defaultSeries;
     }
 
     public String getRebootYear() {
-        return rebootYear;
+        return reboot_year;
     }
 
     public void setRebootYear(String rebootYear) {
-        this.rebootYear = rebootYear;
+        this.reboot_year = rebootYear;
     }
 
     public String getNextNumber() {
-        return nextNumber;
+        return next_number;
     }
 
     public void setNextNumber(String nextNumber) {
-        this.nextNumber = nextNumber;
+        this.next_number = nextNumber;
     }
 
 }
