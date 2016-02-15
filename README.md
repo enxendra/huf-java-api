@@ -12,17 +12,27 @@ It requires a valid API Key and the endpoint of the instance which will be used 
 
 To use properly this library, or to connect by using your own client, check the documentation of our REST API here: (http://docs.huf.apiary.io/)
 
-The first step to use this library is to specify both your API Key and the endpoint of the service in the `RequestOptions` object:
+The first step to use this library is to specify your API_KEY  and the endpoint of the service in the `RequestOptions` object. Additionaly, a USER_TOKEN can be specified in for some functions in which permissions control is required. To learn how to get the USER_TOKEN see the Login Service explanation in  our REST API documentation.
 
 ``` java
 
-  static RequestOptions requestOptions = new RequestOptions(<API_KEY>, <ENDPOINT>);
+  static RequestOptions requestOptions = new RequestOptions(<API_KEY>, <ENDPOINT>, <USER_TOKEN>);
 
 ```
 
-After that, you can create an instance of one of the four services (`InvoiceService`,`DraftService`,`OrganizationService`,`CustomerService`) to invoke the operation you need.
+After that, you can create an instance of one of the five services (`InvoiceService`,`DraftService`,`OrganizationService`,`SerieService`,`CustomerService`) to invoke the operation you need.
 
 ### Available services
+
+```
+src/main/java/com/enxendra/huf/api/test/serie/CreateSerieTest.java
+src/main/java/com/enxendra/huf/api/test/serie/DeleteSerieTest.java
+src/main/java/com/enxendra/huf/api/test/serie/GetSerieTest.java
+src/main/java/com/enxendra/huf/api/test/serie/ListSeriesTest.java
+src/main/java/com/enxendra/huf/api/test/serie/UpdateSerieTest.java
+
+```
+
 ```
 
 src/main/java/com/enxendra/huf/api/service/InvoiceService.java
