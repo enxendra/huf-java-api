@@ -57,7 +57,7 @@ public class LoginTest extends ServiceTest {
 }
 ```
 
-Once you have a USER_TOKEN and you can stablish your RequestOptions, you can create an instance of one of the service you need (`InvoiceService`,`DraftService`,`OrganizationService`,`SerieService`,`CustomerService`) to invoke the operation you need.
+Once you have a USER_TOKEN and you can stablish your RequestOptions, you can create an instance of another service (`InvoiceService`,`DraftService`,`OrganizationService`,`SerieService`,`CustomerService`) to invoke the operation you need.
 
 ### Available services
 
