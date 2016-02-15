@@ -12,7 +12,7 @@ It requires a valid API Key and the endpoint of the instance which will be used 
 
 To use properly this library, or to connect by using your own client, check the documentation of our REST API here: (http://docs.huf.apiary.io/)
 
-The first step to use this library is to specify your API_KEY  and the endpoint of the service in the `RequestOptions` object. Additionaly, a USER_TOKEN can be specified in for some functions in which permissions control is required. To learn how to get the USER_TOKEN see the Login Service explanation in  our REST API documentation.
+The first step to use this library is to specify your API_KEY  and the endpoint of the service in the `RequestOptions` object. Additionaly, a USER_TOKEN can be specified in for some functions in which permissions control is required. To learn how to get the USER_TOKEN see the Login Service explanation bellow.
 
 ``` java
 
@@ -20,7 +20,44 @@ The first step to use this library is to specify your API_KEY  and the endpoint 
 
 ```
 
-After that, you can create an instance of one of the five services (`InvoiceService`,`DraftService`,`OrganizationService`,`SerieService`,`CustomerService`) to invoke the operation you need.
+### User login
+
+To get a USER_TOKEN you need to login with an existing user. This is an example of the login process:
+
+```
+public class LoginTest extends ServiceTest {
+
+    // The login service does not need USER_TOKEN (because it provides it as a response)
+    static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST);
+
+    public static void main(String[] args) {
+        LoginService service = new LoginService(requestOptions);
+
+        Map<String, Object> params = new HashMap<String, Object>();
+
+        params.put("user_name", "diego.gonzalez@enxendra.com");
+        params.put("pass", "0000");
+
+        try {
+            LoginResponse loginResponse = service.login(params);
+
+            if (loginResponse.getResponseCode().equals(Constants.OK)) {
+                System.out.println(loginResponse.getData().getUserName());
+                System.out.println(loginResponse.getData().getUserToken());
+
+            } else {
+                System.out.println("ERROR " + loginResponse.getErrorCode() + ": " + loginResponse.getErrorMessage());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+```
+
+Once you have a USER_TOKEN and you can stablish your RequestOptions, you can create an instance of one of the service you need (`InvoiceService`,`DraftService`,`OrganizationService`,`SerieService`,`CustomerService`) to invoke the operation you need.
 
 ### Available services
 
