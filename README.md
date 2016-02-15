@@ -24,14 +24,6 @@ After that, you can create an instance of one of the five services (`InvoiceServ
 
 ### Available services
 
-```
-src/main/java/com/enxendra/huf/api/test/serie/CreateSerieTest.java
-src/main/java/com/enxendra/huf/api/test/serie/DeleteSerieTest.java
-src/main/java/com/enxendra/huf/api/test/serie/GetSerieTest.java
-src/main/java/com/enxendra/huf/api/test/serie/ListSeriesTest.java
-src/main/java/com/enxendra/huf/api/test/serie/UpdateSerieTest.java
-
-```
 
 ```
 
@@ -39,6 +31,7 @@ src/main/java/com/enxendra/huf/api/service/InvoiceService.java
 src/main/java/com/enxendra/huf/api/service/DraftService.java
 src/main/java/com/enxendra/huf/api/service/OrganizationService.java
 src/main/java/com/enxendra/huf/api/service/CustomerService.java
+src/main/java/com/enxendra/huf/api/service/SerieService.java
 
 ```
 
@@ -65,6 +58,16 @@ if (draftItemResponse.getResponseCode().equals(Constants.OK)) {
 
 Each service and method has its own characteristics. So additionaly to the Rest API documentation (see above), to learn how to call our API just by using this library, check the 42 examples (one for each posible operation) that we have already implemented  in the package `com.enxendra.huf.api.test`:
 
+### Serie operations
+
+```
+/src/main/java/com/enxendra/huf/api/test/serie/CreateSerieTest.java
+/src/main/java/com/enxendra/huf/api/test/serie/DeleteSerieTest.java
+/src/main/java/com/enxendra/huf/api/test/serie/GetSerieTest.java
+/src/main/java/com/enxendra/huf/api/test/serie/ListSeriesTest.java
+/src/main/java/com/enxendra/huf/api/test/serie/UpdateSerieTest.java
+
+```
 ### Organization operations
 
 ```
