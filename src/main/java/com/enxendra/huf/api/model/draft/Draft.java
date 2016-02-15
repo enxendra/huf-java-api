@@ -19,6 +19,7 @@ public class Draft {
     public String date;
     public String state;
     public String total_cost;
+    public String series_id;
     public String gross_amount;
     public String total_to_pay;
     public String currency;
@@ -234,6 +235,14 @@ public class Draft {
 
     public Map<String, String> getInvoiceErrors() {
         return this.invoice_errors;
+    }
+
+    public void setSeriesId(String series_id) {
+        this.series_id = series_id;
+    }
+
+    public String getSeriesId() {
+        return series_id;
     }
 
 }
