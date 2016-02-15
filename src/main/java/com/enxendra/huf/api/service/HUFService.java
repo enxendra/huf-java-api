@@ -66,12 +66,19 @@ public class HUFService {
         HttpURLConnection urlConnection = (HttpURLConnection) new URL(endpoint).openConnection();
 
         // Add header
-        System.out.println(Constants.CLIENT_VERSION + ": " + requestOptions.getApiKey());
-        System.out.println(Constants.USER_TOKEN + ": " + requestOptions.getUserToken());
+        System.out.println(Constants.CLIENT_VERSION + ": " + requestOptions.getClientVersion());
+
+        if (requestOptions.getUserToken() != null)
+            System.out.println(Constants.USER_TOKEN + ": " + requestOptions.getUserToken());
+
         System.out.println(Constants.CONTENT_TYPE + ": " + Constants.APP_JSON);
         System.out.println(Constants.AUTH + ": " + Constants.BASIC + " " + requestOptions.getApiKey());
 
         urlConnection.setRequestProperty(Constants.CONTENT_TYPE, Constants.APP_JSON);
+
+        if (requestOptions.getUserToken() != null)
+            urlConnection.setRequestProperty(Constants.USER_TOKEN, requestOptions.getUserToken());
+
         urlConnection.setRequestProperty(Constants.CLIENT_VERSION, requestOptions.getClientVersion());
         urlConnection.setRequestProperty(Constants.AUTH, Constants.BASIC + " " + requestOptions.getApiKey());
         urlConnection.setRequestMethod(requestMethod.name());
