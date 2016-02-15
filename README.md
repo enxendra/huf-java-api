@@ -69,6 +69,7 @@ src/main/java/com/enxendra/huf/api/service/DraftService.java
 src/main/java/com/enxendra/huf/api/service/OrganizationService.java
 src/main/java/com/enxendra/huf/api/service/CustomerService.java
 src/main/java/com/enxendra/huf/api/service/SerieService.java
+src/main/java/com/enxendra/huf/api/service/LoginService.java
 
 ```
 
