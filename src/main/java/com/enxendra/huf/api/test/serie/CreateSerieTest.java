@@ -16,16 +16,15 @@ public class CreateSerieTest extends ServiceTest {
 
         JsonObject body = new JsonObject();
 
-        body.addProperty("poblation", "A Coruña");
-        body.addProperty("phone", "692977695");
-        body.addProperty("post_code", "15009");
-        body.addProperty("web_url", "www.test.com");
-        body.addProperty("country_code", "ESP");
-        body.addProperty("email", "drom.gom@gmail.com");
-        body.addProperty("address", "Padre Pita, 10");
-        body.addProperty("tax_number", "011038778S");
-        body.addProperty("name", "Sopo Technologies, S.L.");
-        body.addProperty("province", "A Coruña");
+        body.addProperty("name", "TEST-DOS");
+        body.addProperty("code", "9999999");
+        body.addProperty("prefix", "TEST/");
+        body.addProperty("suffix", "/2");
+        body.addProperty("fill_left", "3");
+        body.addProperty("numbering", "true");
+        body.addProperty("default_series", "1");
+        body.addProperty("reboot_year", "false");
+        body.addProperty("next_number", "3");
 
         try {
             SerieResponse serieResponse = service.createSerie(body);

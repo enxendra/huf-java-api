@@ -14,7 +14,7 @@ public class DeleteSerieTest extends ServiceTest {
         SerieService service = new SerieService(requestOptions);
 
         try {
-            SerieResponse serieResponse = service.deleteSerie(new Long(359));
+            SerieResponse serieResponse = service.deleteSerie(new Long(15));
 
             if (!serieResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("ERROR " + serieResponse.getErrorCode() + ": " + serieResponse.getErrorMessage());

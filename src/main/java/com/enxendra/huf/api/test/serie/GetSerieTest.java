@@ -14,11 +14,13 @@ public class GetSerieTest extends ServiceTest {
         SerieService service = new SerieService(requestOptions);
 
         try {
-            SerieResponse serieResponse = service.getSerie(new Long(363));
+            SerieResponse serieResponse = service.getSerie(new Long(16));
 
             if (serieResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println(serieResponse.getData().getCode());
-                System.out.println(serieResponse.getData().getNextNumber());
+                System.out.println(serieResponse.getData().getName());
+                System.out.println(serieResponse.getData().getFillLeft());
+                System.out.println(serieResponse.getData().getRebootYear());
 
             } else {
                 System.out.println("ERROR " + serieResponse.getErrorCode() + ": " + serieResponse.getErrorMessage());

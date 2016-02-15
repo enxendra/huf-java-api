@@ -16,19 +16,18 @@ public class UpdateSerieTest extends ServiceTest {
 
         JsonObject body = new JsonObject();
 
-        body.addProperty("id", "A Coruña");
-        body.addProperty("name", "666666666");
-        body.addProperty("code", "15009");
-        body.addProperty("prefix", "www.test.com");
-        body.addProperty("suffix", "ESP");
-        body.addProperty("fillLeft", "test@test.com");
-        body.addProperty("numbering", "Padre Pita, 10");
-        body.addProperty("defaultSeries", "0126038778S");
-        body.addProperty("rebootYear", "Sopo Technologies, S.L.");
-        body.addProperty("nextNumber", "A ");
+        body.addProperty("name", "TEST-TRES");
+        body.addProperty("code", "9999999");
+        body.addProperty("prefix", "TEST-tres/");
+        body.addProperty("suffix", "/3");
+        body.addProperty("fill_left", "3");
+        body.addProperty("numbering", "true");
+        body.addProperty("default_series", "1");
+        body.addProperty("reboot_year", "false");
+        body.addProperty("next_number", "3");
 
         try {
-            SerieResponse serieResponse = service.updateSerie(new Long(363), body);
+            SerieResponse serieResponse = service.updateSerie(new Long(16), body);
 
             if (serieResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("Serie updated");
