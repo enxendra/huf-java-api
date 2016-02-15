@@ -57,7 +57,7 @@ public class LoginTest extends ServiceTest {
 }
 ```
 
-Once you have a USER_TOKEN and you can stablish your RequestOptions, you can create an instance of another service (`InvoiceService`,`DraftService`,`OrganizationService`,`SerieService`,`CustomerService`) to invoke the operation you need.
+Once you have a USER_TOKEN and you can stablish your RequestOptions, you can create an instance of another service (`InvoiceService`,`DraftService`,`OrganizationService`,...) to invoke the operation you need.
 
 ### Available services
 
@@ -65,6 +65,7 @@ Once you have a USER_TOKEN and you can stablish your RequestOptions, you can cre
 ```
 
 src/main/java/com/enxendra/huf/api/service/InvoiceService.java
+src/main/java/com/enxendra/huf/api/service/UserService.java
 src/main/java/com/enxendra/huf/api/service/DraftService.java
 src/main/java/com/enxendra/huf/api/service/OrganizationService.java
 src/main/java/com/enxendra/huf/api/service/CustomerService.java
