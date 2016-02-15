@@ -8,7 +8,7 @@ import com.enxendra.huf.api.test.ServiceTest;
 
 public class GetInvoiceAttachmentTest extends ServiceTest {
 
-    static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST);
+    static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST, USR_TOKEN);
 
     public static void main(String[] args) {
         InvoiceService service = new InvoiceService(requestOptions, new Long(27));

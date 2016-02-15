@@ -6,11 +6,13 @@ public class RequestOptions {
 
     private String apiKey;
     private String apiBase;
+    private String userToken;
 
-    public RequestOptions(String apiKey, String apiBase) {
+    public RequestOptions(String apiKey, String apiBase, String userToken) {
         super();
         this.apiKey = apiKey;
         this.apiBase = apiBase;
+        this.setUserToken(userToken);
     }
 
     public String getApiKey() {
@@ -31,6 +33,14 @@ public class RequestOptions {
 
     public String getClientVersion() {
         return clientVersion;
+    }
+
+    public String getUserToken() {
+        return userToken;
+    }
+
+    public void setUserToken(String userToken) {
+        this.userToken = userToken;
     }
 
 }

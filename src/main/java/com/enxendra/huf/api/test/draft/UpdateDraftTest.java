@@ -12,7 +12,7 @@ import com.google.gson.JsonParser;
 
 public class UpdateDraftTest extends ServiceTest {
 
-    static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST);
+    static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST, USR_TOKEN);
 
     public static void main(String[] args) {
         DraftService service = new DraftService(requestOptions, new Long(27));

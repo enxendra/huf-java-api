@@ -9,7 +9,7 @@ import com.google.gson.JsonObject;
 
 public class UpdateCustomerTest extends ServiceTest {
 
-    static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST);
+    static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST, USR_TOKEN);
 
     public static void main(String[] args) {
         CustomerService service = new CustomerService(requestOptions, new Long(363));

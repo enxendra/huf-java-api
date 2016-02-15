@@ -12,7 +12,7 @@ import com.google.gson.JsonParser;
 
 public class UpdateInvoiceStateTest extends ServiceTest {
 
-    static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST);
+    static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST, USR_TOKEN);
 
     public static void main(String[] args) {
         InvoiceService service = new InvoiceService(requestOptions, new Long(27));

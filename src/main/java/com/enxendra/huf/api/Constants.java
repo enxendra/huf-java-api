@@ -10,6 +10,7 @@ public class Constants {
     public static final String CONTENT_TYPE = "Content-Type";
     public static final String APP_JSON = "application/json; charset=UTF-8";
     public static final String AUTH = "Authorization";
+    public static final String USER_TOKEN = "user_token";
     public static final String BASIC = "Basic";
     public static final String CLIENT_VERSION = "Client-version";
 

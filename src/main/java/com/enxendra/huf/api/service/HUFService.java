@@ -67,6 +67,7 @@ public class HUFService {
 
         // Add header
         System.out.println(Constants.CLIENT_VERSION + ": " + requestOptions.getApiKey());
+        System.out.println(Constants.USER_TOKEN + ": " + requestOptions.getUserToken());
         System.out.println(Constants.CONTENT_TYPE + ": " + Constants.APP_JSON);
         System.out.println(Constants.AUTH + ": " + Constants.BASIC + " " + requestOptions.getApiKey());
 
