@@ -12,7 +12,13 @@ public class RequestOptions {
         super();
         this.apiKey = apiKey;
         this.apiBase = apiBase;
-        this.setUserToken(userToken);
+        this.userToken = userToken;
+    }
+
+    public RequestOptions(String apiKey, String apiBase) {
+        super();
+        this.apiKey = apiKey;
+        this.apiBase = apiBase;
     }
 
     public String getApiKey() {
