@@ -64,6 +64,7 @@ Once you have a USER_TOKEN and you can stablish your RequestOptions, you can cre
 
 ```
 
+src/main/java/com/enxendra/huf/api/service/MasterTablesService.java
 src/main/java/com/enxendra/huf/api/service/InvoiceService.java
 src/main/java/com/enxendra/huf/api/service/UserService.java
 src/main/java/com/enxendra/huf/api/service/DraftService.java
