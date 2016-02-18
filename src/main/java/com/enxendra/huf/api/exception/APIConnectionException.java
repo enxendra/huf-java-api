@@ -4,11 +4,11 @@ package com.enxendra.huf.api.exception;
 public class APIConnectionException extends HUFException {
 
     public APIConnectionException(String message) {
-        super(message, null, 0);
+        super("SN", message);
     }
 
     public APIConnectionException(String message, Throwable e) {
-        super(message, null, 0, e);
+        super(message, "SN", e);
     }
 
 }
