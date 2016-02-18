@@ -10,4 +10,8 @@ public class PaymentMeansResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(PaymentMeansMap data) {
+        this.data = data;
+    }
+
 }

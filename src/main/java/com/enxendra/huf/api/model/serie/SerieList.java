@@ -9,4 +9,8 @@ public class SerieList {
     public List<Serie> getSeries() {
         return series;
     }
+
+    public void setSeries(List<Serie> series) {
+        this.series = series;
+    }
 }

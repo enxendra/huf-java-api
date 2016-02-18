@@ -10,4 +10,8 @@ public class DraftResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(Draft data) {
+        this.data = data;
+    }
+
 }

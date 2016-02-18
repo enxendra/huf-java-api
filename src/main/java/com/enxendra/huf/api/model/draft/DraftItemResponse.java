@@ -11,4 +11,8 @@ public class DraftItemResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(Item data) {
+        this.data = data;
+    }
+
 }

@@ -244,4 +244,16 @@ public class Invoice {
         return export;
     }
 
+    public void setOriginal(String original) {
+        this.original = original;
+    }
+
+    public void setPdf(String pdf) {
+        this.pdf = pdf;
+    }
+
+    public void setExport(String export) {
+        this.export = export;
+    }
+
 }

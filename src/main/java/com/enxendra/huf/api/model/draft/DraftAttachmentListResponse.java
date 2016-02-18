@@ -9,4 +9,9 @@ public class DraftAttachmentListResponse extends HUFResponse {
     public DraftAttachmentList getData() {
         return data;
     }
+
+    public void setData(DraftAttachmentList data) {
+        this.data = data;
+    }
+
 }

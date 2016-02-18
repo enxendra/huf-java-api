@@ -9,4 +9,8 @@ public class OrganizationList {
     public List<Organization> getOrganizations() {
         return organizations;
     }
+
+    public void setOrganizations(List<Organization> organizations) {
+        this.organizations = organizations;
+    }
 }

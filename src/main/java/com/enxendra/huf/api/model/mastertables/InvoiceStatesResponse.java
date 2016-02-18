@@ -10,4 +10,8 @@ public class InvoiceStatesResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(InvoiceStatesMap data) {
+        this.data = data;
+    }
+
 }

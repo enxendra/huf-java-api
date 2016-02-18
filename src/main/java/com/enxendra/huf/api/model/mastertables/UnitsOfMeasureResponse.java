@@ -10,4 +10,8 @@ public class UnitsOfMeasureResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(UnitsOfMeasureMap data) {
+        this.data = data;
+    }
+
 }

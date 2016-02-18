@@ -73,4 +73,60 @@ public class Customer {
         return export;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTaxNumber(String tax_number) {
+        this.tax_number = tax_number;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFirstName(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public void setSecondName(String second_name) {
+        this.second_name = second_name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPoblation(String poblation) {
+        this.poblation = poblation;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public void setPostCode(String post_code) {
+        this.post_code = post_code;
+    }
+
+    public void setCountryCode(String country_code) {
+        this.country_code = country_code;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setContactPerson(String contact_person) {
+        this.contact_person = contact_person;
+    }
+
+    public void setExport(String export) {
+        this.export = export;
+    }
+
 }

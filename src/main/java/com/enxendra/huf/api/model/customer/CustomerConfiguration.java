@@ -37,4 +37,33 @@ public class CustomerConfiguration {
     public String getPdfTemplate() {
         return pdf_template;
     }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public void setInvoiceFormat(String invoice_format) {
+        this.invoice_format = invoice_format;
+    }
+
+    public void setChannel(String channel) {
+        this.channel = channel;
+    }
+
+    public void setBankAccount(String bank_account) {
+        this.bank_account = bank_account;
+    }
+
+    public void setPaymentDeadline(String payment_deadline) {
+        this.payment_deadline = payment_deadline;
+    }
+
+    public void setPdfTemplate(String pdf_template) {
+        this.pdf_template = pdf_template;
+    }
+
 }

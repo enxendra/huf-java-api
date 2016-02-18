@@ -11,4 +11,8 @@ public class InvoiceAttachmentResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(Attachment data) {
+        this.data = data;
+    }
+
 }

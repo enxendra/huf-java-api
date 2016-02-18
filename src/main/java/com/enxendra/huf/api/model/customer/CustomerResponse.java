@@ -10,4 +10,8 @@ public class CustomerResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(Customer data) {
+        this.data = data;
+    }
+
 }

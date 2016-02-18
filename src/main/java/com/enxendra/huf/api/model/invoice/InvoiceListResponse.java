@@ -9,4 +9,9 @@ public class InvoiceListResponse extends HUFResponse {
     public InvoiceList getData() {
         return data;
     }
+
+    public void setData(InvoiceList data) {
+        this.data = data;
+    }
+
 }

@@ -23,4 +23,20 @@ public class Attachment {
         return mime;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMime(String mime) {
+        this.mime = mime;
+    }
+
 }

@@ -9,4 +9,9 @@ public class DraftList {
     public List<Draft> getDrafts() {
         return drafts;
     }
+
+    public void setDrafts(List<Draft> drafts) {
+        this.drafts = drafts;
+    }
+
 }

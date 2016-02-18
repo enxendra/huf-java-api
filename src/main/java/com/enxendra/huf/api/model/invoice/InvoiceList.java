@@ -9,4 +9,8 @@ public class InvoiceList {
     public List<Invoice> getInvoices() {
         return invoices;
     }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
+    }
 }

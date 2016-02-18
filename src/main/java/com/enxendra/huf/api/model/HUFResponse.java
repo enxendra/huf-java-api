@@ -34,4 +34,12 @@ public class HUFResponse {
         this.responseMessage = responseMessage;
     }
 
+    public void setErrorCode(String error_code) {
+        this.error_code = error_code;
+    }
+
+    public void setErrorMessage(String error_message) {
+        this.error_message = error_message;
+    }
+
 }

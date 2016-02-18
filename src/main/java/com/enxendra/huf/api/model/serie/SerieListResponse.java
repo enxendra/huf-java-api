@@ -9,4 +9,8 @@ public class SerieListResponse extends HUFResponse {
     public SerieList getData() {
         return data;
     }
+
+    public void setData(SerieList data) {
+        this.data = data;
+    }
 }

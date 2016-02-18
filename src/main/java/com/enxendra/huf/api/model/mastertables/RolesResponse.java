@@ -10,4 +10,8 @@ public class RolesResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(RolesMap data) {
+        this.data = data;
+    }
+
 }

@@ -15,11 +15,11 @@ public class Party {
     private String phone;
     private String email;
 
-    public String getTax_number() {
+    public String getTaxNumber() {
         return tax_number;
     }
 
-    public void setTax_number(String tax_number) {
+    public void setTaxNumber(String tax_number) {
         this.tax_number = tax_number;
     }
 
@@ -31,19 +31,19 @@ public class Party {
         this.name = name;
     }
 
-    public String getFirst_surname() {
+    public String getFirstSurname() {
         return first_surname;
     }
 
-    public void setFirst_surname(String first_surname) {
+    public void setFirstSurname(String first_surname) {
         this.first_surname = first_surname;
     }
 
-    public String getSecond_surname() {
+    public String getSecondSurname() {
         return second_surname;
     }
 
-    public void setSecond_surname(String second_surname) {
+    public void setSecondSurname(String second_surname) {
         this.second_surname = second_surname;
     }
 
@@ -75,15 +75,15 @@ public class Party {
         return post_code;
     }
 
-    public void setPost_code(String post_code) {
+    public void setPostCode(String post_code) {
         this.post_code = post_code;
     }
 
-    public String getCountry_code() {
+    public String getCountryCode() {
         return country_code;
     }
 
-    public void setCountry_code(String country_code) {
+    public void setCountryCode(String country_code) {
         this.country_code = country_code;
     }
 

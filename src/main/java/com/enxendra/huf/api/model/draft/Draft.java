@@ -245,4 +245,16 @@ public class Draft {
         return series_id;
     }
 
+    public void setPreview(String preview) {
+        this.preview = preview;
+    }
+
+    public void setIsValid(String is_valid) {
+        this.is_valid = is_valid;
+    }
+
+    public void setInvoiceErrors(Map<String, String> invoice_errors) {
+        this.invoice_errors = invoice_errors;
+    }
+
 }

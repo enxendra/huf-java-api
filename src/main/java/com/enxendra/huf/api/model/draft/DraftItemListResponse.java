@@ -9,4 +9,8 @@ public class DraftItemListResponse extends HUFResponse {
     public DraftItemList getData() {
         return data;
     }
+
+    public void setData(DraftItemList data) {
+        this.data = data;
+    }
 }

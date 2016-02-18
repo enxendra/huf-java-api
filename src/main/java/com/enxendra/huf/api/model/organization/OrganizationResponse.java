@@ -10,4 +10,8 @@ public class OrganizationResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(Organization data) {
+        this.data = data;
+    }
+
 }

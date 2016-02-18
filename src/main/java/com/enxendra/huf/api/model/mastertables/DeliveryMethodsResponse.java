@@ -10,4 +10,8 @@ public class DeliveryMethodsResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(DeliveryMethodsMap data) {
+        this.data = data;
+    }
+
 }

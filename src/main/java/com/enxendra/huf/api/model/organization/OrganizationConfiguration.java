@@ -58,4 +58,48 @@ public class OrganizationConfiguration {
         return footer_texts;
     }
 
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public void setInvoiceFormat(String invoice_format) {
+        this.invoice_format = invoice_format;
+    }
+
+    public void setChannel(String channel) {
+        this.channel = channel;
+    }
+
+    public void setBankAccount(String bank_account) {
+        this.bank_account = bank_account;
+    }
+
+    public void setPaymentDeadline(Integer payment_deadline) {
+        this.payment_deadline = payment_deadline;
+    }
+
+    public void setPdfTemplate(String pdf_template) {
+        this.pdf_template = pdf_template;
+    }
+
+    public void setPrimaryColor(String primary_color) {
+        this.primary_color = primary_color;
+    }
+
+    public void setSecondaryColor(String secondary_color) {
+        this.secondary_color = secondary_color;
+    }
+
+    public void setSignatureDelegate(Boolean signature_delegate) {
+        this.signature_delegate = signature_delegate;
+    }
+
+    public void setFooterTexts(String footer_texts) {
+        this.footer_texts = footer_texts;
+    }
+
 }

@@ -10,4 +10,8 @@ public class TaxesResponse extends HUFResponse {
         return data;
     }
 
+    public void setData(TaxesMap data) {
+        this.data = data;
+    }
+
 }

@@ -9,4 +9,8 @@ public class UserListResponse extends HUFResponse {
     public UserList getData() {
         return data;
     }
+
+    public void setData(UserList data) {
+        this.data = data;
+    }
 }

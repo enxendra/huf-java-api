@@ -11,4 +11,8 @@ public class DraftItemList {
     public List<Item> getDraftItems() {
         return draft_items;
     }
+
+    public void setDraftItems(List<Item> draft_items) {
+        this.draft_items = draft_items;
+    }
 }
