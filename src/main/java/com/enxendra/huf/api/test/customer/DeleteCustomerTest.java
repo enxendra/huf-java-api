@@ -2,7 +2,7 @@ package com.enxendra.huf.api.test.customer;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.customer.CustomerResponse;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.service.CustomerService;
 import com.enxendra.huf.api.test.ServiceTest;
 
@@ -14,17 +14,10 @@ public class DeleteCustomerTest extends ServiceTest {
         CustomerService service = new CustomerService(requestOptions, new Long(363));
 
         try {
-            CustomerResponse customerResponse = service.deleteCustomer(new Long(1145));
-
-            if (!customerResponse.getResponseCode().equals(Constants.OK)) {
-                System.out.println("ERROR " + customerResponse.getErrorCode() + ": "
-                        + customerResponse.getErrorMessage());
-            } else {
-                System.out.println("Deleted!");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            service.deleteCustomer(new Long(1145));
+            System.out.println("Deleted!");
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 

@@ -2,6 +2,7 @@ package com.enxendra.huf.api.test.draft;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.draft.DraftAttachmentResponse;
 import com.enxendra.huf.api.service.DraftService;
 import com.enxendra.huf.api.test.ServiceTest;
@@ -21,13 +22,9 @@ public class GetDraftAttachmentTest extends ServiceTest {
                 System.out.println(draftAttachmentResponse.getData().getName());
                 System.out.println(draftAttachmentResponse.getData().getContent());
 
-            } else {
-                System.out.println("ERROR " + draftAttachmentResponse.getErrorCode() + ": "
-                        + draftAttachmentResponse.getErrorMessage());
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 

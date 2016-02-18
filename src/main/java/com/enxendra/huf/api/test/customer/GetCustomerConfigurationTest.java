@@ -2,6 +2,7 @@ package com.enxendra.huf.api.test.customer;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.customer.CustomerConfigurationResponse;
 import com.enxendra.huf.api.service.CustomerService;
 import com.enxendra.huf.api.test.ServiceTest;
@@ -21,13 +22,9 @@ public class GetCustomerConfigurationTest extends ServiceTest {
                 System.out.println(customerConfigurationResponse.getData().getInvoiceFormat());
                 System.out.println(customerConfigurationResponse.getData().getCurrency());
 
-            } else {
-                System.out.println("ERROR " + customerConfigurationResponse.getErrorCode() + ": "
-                        + customerConfigurationResponse.getErrorMessage());
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 }

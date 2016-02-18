@@ -2,6 +2,7 @@ package com.enxendra.huf.api.test.customer;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.customer.CustomerResponse;
 import com.enxendra.huf.api.service.CustomerService;
 import com.enxendra.huf.api.test.ServiceTest;
@@ -33,13 +34,10 @@ public class UpdateCustomerTest extends ServiceTest {
             if (customerResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("Customer updated");
 
-            } else {
-                System.out.println("ERROR " + customerResponse.getErrorCode() + ": "
-                        + customerResponse.getErrorMessage());
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 }

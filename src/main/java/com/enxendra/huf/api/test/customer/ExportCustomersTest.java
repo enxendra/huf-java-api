@@ -6,6 +6,7 @@ import java.util.Map;
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.ExportFormat;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.customer.CustomerResponse;
 import com.enxendra.huf.api.service.CustomerService;
 import com.enxendra.huf.api.test.ServiceTest;
@@ -36,14 +37,10 @@ public class ExportCustomersTest extends ServiceTest {
                 } else {
                     System.out.println("Customers not found");
                 }
-
-            } else {
-                System.out.println("ERROR " + customerResponse.getErrorCode() + ": "
-                        + customerResponse.getErrorMessage());
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 }

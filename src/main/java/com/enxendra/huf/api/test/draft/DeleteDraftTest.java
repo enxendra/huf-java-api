@@ -2,7 +2,7 @@ package com.enxendra.huf.api.test.draft;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.model.draft.DraftResponse;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.service.DraftService;
 import com.enxendra.huf.api.test.ServiceTest;
 
@@ -14,16 +14,11 @@ public class DeleteDraftTest extends ServiceTest {
         DraftService service = new DraftService(requestOptions, new Long(27));
 
         try {
-            DraftResponse draftResponse = service.deleteDraft(new Long(17030));
+            service.deleteDraft(new Long(17030));
+            System.out.println("Deleted!");
 
-            if (!draftResponse.getResponseCode().equals(Constants.OK)) {
-                System.out.println("ERROR " + draftResponse.getErrorCode() + ": " + draftResponse.getErrorMessage());
-            } else {
-                System.out.println("Deleted!");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 

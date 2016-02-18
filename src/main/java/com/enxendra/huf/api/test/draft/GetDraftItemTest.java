@@ -2,6 +2,7 @@ package com.enxendra.huf.api.test.draft;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.draft.DraftItemResponse;
 import com.enxendra.huf.api.service.DraftService;
 import com.enxendra.huf.api.test.ServiceTest;
@@ -19,13 +20,9 @@ public class GetDraftItemTest extends ServiceTest {
             if (draftItemResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println(draftItemResponse.getData().getDescription());
                 System.out.println(draftItemResponse.getData().getPrice());
-            } else {
-                System.out.println("ERROR " + draftItemResponse.getErrorCode() + ": "
-                        + draftItemResponse.getErrorMessage());
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 

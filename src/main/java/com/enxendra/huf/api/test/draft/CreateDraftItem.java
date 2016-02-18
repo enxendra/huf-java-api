@@ -2,6 +2,7 @@ package com.enxendra.huf.api.test.draft;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.draft.DraftItemResponse;
 import com.enxendra.huf.api.model.shared.Item;
 import com.enxendra.huf.api.service.DraftService;
@@ -33,13 +34,10 @@ public class CreateDraftItem extends ServiceTest {
             if (draftItemResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new draftItem has the following id: " + draftItemResponse.getData().getId());
 
-            } else {
-                System.out.println("ERROR " + draftItemResponse.getErrorCode() + ": "
-                        + draftItemResponse.getErrorMessage());
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 }

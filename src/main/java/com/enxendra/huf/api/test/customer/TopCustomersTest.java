@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.customer.Customer;
 import com.enxendra.huf.api.model.customer.CustomerListResponse;
 import com.enxendra.huf.api.service.CustomerService;
@@ -38,13 +39,9 @@ public class TopCustomersTest extends ServiceTest {
                     System.out.println("Customers not found");
                 }
 
-            } else {
-                System.out.println("ERROR " + customerListResponse.getErrorCode() + ": "
-                        + customerListResponse.getErrorMessage());
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 }
