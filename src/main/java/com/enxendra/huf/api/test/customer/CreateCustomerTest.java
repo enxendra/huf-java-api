@@ -2,6 +2,7 @@ package com.enxendra.huf.api.test.customer;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.customer.CustomerResponse;
 import com.enxendra.huf.api.service.CustomerService;
 import com.enxendra.huf.api.test.ServiceTest;
@@ -23,7 +24,7 @@ public class CreateCustomerTest extends ServiceTest {
         body.addProperty("country_code", "ESP");
         body.addProperty("email", "drom@test.com");
         body.addProperty("address", "Padre Pita, 110");
-        body.addProperty("tax_number", "0231038S");
+        body.addProperty("tax_number", "021038S");
         body.addProperty("name", "Pedro");
         body.addProperty("first_surname", "Gonzalez");
         body.addProperty("second_surname", "Rodriguez");
@@ -34,14 +35,10 @@ public class CreateCustomerTest extends ServiceTest {
 
             if (customerResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new customer has the following id: " + customerResponse.getData().getId());
-
-            } else {
-                System.out.println("ERROR " + customerResponse.getErrorCode() + ": "
-                        + customerResponse.getErrorMessage());
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 }
