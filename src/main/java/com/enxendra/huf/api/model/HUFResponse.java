@@ -1,5 +1,8 @@
 package com.enxendra.huf.api.model;
 
+import com.enxendra.huf.api.Constants;
+import com.enxendra.huf.api.exception.HUFException;
+
 public class HUFResponse {
 
     // Response attributes
@@ -42,4 +45,17 @@ public class HUFResponse {
         this.error_message = error_message;
     }
 
+    public void check() throws HUFException {
+        if (error_code != null && !error_code.equals(""))
+            throw new HUFException(error_code, error_message);
+        else if (isInvalidResponse(responseCode))
+            throw new HUFException(responseCode, responseMessage);
+    }
+
+    private Boolean isInvalidResponse(String responseCode) {
+        if (responseCode.equals(Constants.OK) || responseCode.equals(Constants.CREATED_OR_UPDATED))
+            return false;
+        else
+            return true;
+    }
 }

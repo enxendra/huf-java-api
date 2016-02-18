@@ -4,7 +4,7 @@ package com.enxendra.huf.api.exception;
 public class APIException extends HUFException {
 
     public APIException(String message, String requestId, Integer code, Throwable e) {
-        super(message, requestId, code, e);
+        super(message, code + "", e);
     }
 
 }
