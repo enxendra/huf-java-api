@@ -20,67 +20,68 @@ public class CustomerService extends HUFService {
         this.urlBase = requestOptions.getApiBase() + "/organizations/" + orgId + "/" + SERVICE_PATH;
     }
 
-    public CustomerResponse getCustomer(Long customerId) throws Exception {
+    public CustomerResponse getCustomer(Long customerId) throws HUFException {
         JsonObject jsonResponse = callService("/" + customerId, RequestMethod.GET);
-        CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
-        return customerResponse;
-    }
-
-    public CustomerResponse createCustomer(JsonObject body) throws HUFException {
-        JsonObject jsonResponse = null;
-
-        try {
-            jsonResponse = callService("/", RequestMethod.POST, body);
-        } catch (Exception e) {
-            throw new HUFException(e.getMessage(), "S/N", e);
-        }
-
         CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
         customerResponse.check();
         return customerResponse;
     }
 
-    public CustomerResponse updateCustomer(Long id, JsonObject body) throws Exception {
+    public CustomerResponse createCustomer(JsonObject body) throws HUFException {
+        JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
+        CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
+        customerResponse.check();
+        return customerResponse;
+    }
+
+    public CustomerResponse updateCustomer(Long id, JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
         CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
+        customerResponse.check();
         return customerResponse;
     }
 
-    public CustomerResponse deleteCustomer(Long id) throws Exception {
+    public CustomerResponse deleteCustomer(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.DELETE);
         CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
+        customerResponse.check();
         return customerResponse;
     }
 
-    public CustomerListResponse listCustomers(Map<String, Object> params) throws Exception {
+    public CustomerListResponse listCustomers(Map<String, Object> params) throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.GET, params);
         CustomerListResponse customerListResponse = (new Gson()).fromJson(jsonResponse, CustomerListResponse.class);
+        customerListResponse.check();
         return customerListResponse;
     }
 
-    public CustomerResponse exportCustomers(Map<String, Object> params) throws Exception {
+    public CustomerResponse exportCustomers(Map<String, Object> params) throws HUFException {
         JsonObject jsonResponse = callService("/export", RequestMethod.GET, params);
         CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
+        customerResponse.check();
         return customerResponse;
     }
 
-    public CustomerListResponse topCustomers(Map<String, Object> params) throws Exception {
+    public CustomerListResponse topCustomers(Map<String, Object> params) throws HUFException {
         JsonObject jsonResponse = callService("/top", RequestMethod.GET, params);
         CustomerListResponse customerListResponse = (new Gson()).fromJson(jsonResponse, CustomerListResponse.class);
+        customerListResponse.check();
         return customerListResponse;
     }
 
-    public CustomerConfigurationResponse getCustomerConfiguration(Long id) throws Exception {
+    public CustomerConfigurationResponse getCustomerConfiguration(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/configuration", RequestMethod.GET);
         CustomerConfigurationResponse customerConfigurationResponse = (new Gson()).fromJson(jsonResponse,
                 CustomerConfigurationResponse.class);
+        customerConfigurationResponse.check();
         return customerConfigurationResponse;
     }
 
-    public CustomerConfigurationResponse updateCustomerConfiguration(Long id, JsonObject body) throws Exception {
+    public CustomerConfigurationResponse updateCustomerConfiguration(Long id, JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/configuration", RequestMethod.PUT, body);
         CustomerConfigurationResponse customerConfigurationResponse = (new Gson()).fromJson(jsonResponse,
                 CustomerConfigurationResponse.class);
+        customerConfigurationResponse.check();
         return customerConfigurationResponse;
     }
 
