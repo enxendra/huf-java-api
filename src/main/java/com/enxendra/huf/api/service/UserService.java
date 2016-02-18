@@ -2,6 +2,7 @@ package com.enxendra.huf.api.service;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.user.UserListResponse;
 import com.enxendra.huf.api.model.user.UserResponse;
 import com.google.gson.Gson;
@@ -16,34 +17,39 @@ public class UserService extends HUFService {
         this.urlBase = requestOptions.getApiBase() + "/" + SERVICE_PATH;
     }
 
-    public UserResponse getUser(Long id) throws Exception {
+    public UserResponse getUser(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.GET);
-        UserResponse userResponse = (new Gson()).fromJson(jsonResponse, UserResponse.class);
-        return userResponse;
+        UserResponse response = (new Gson()).fromJson(jsonResponse, UserResponse.class);
+        response.check();
+        return response;
     }
 
-    public UserResponse createUser(JsonObject body) throws Exception {
+    public UserResponse createUser(JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
-        UserResponse userResponse = (new Gson()).fromJson(jsonResponse, UserResponse.class);
-        return userResponse;
+        UserResponse response = (new Gson()).fromJson(jsonResponse, UserResponse.class);
+        response.check();
+        return response;
     }
 
-    public UserResponse updateUser(Long id, JsonObject body) throws Exception {
+    public UserResponse updateUser(Long id, JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
-        UserResponse userResponse = (new Gson()).fromJson(jsonResponse, UserResponse.class);
-        return userResponse;
+        UserResponse response = (new Gson()).fromJson(jsonResponse, UserResponse.class);
+        response.check();
+        return response;
     }
 
-    public UserResponse deleteUser(Long id) throws Exception {
+    public UserResponse deleteUser(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.DELETE);
-        UserResponse userResponse = (new Gson()).fromJson(jsonResponse, UserResponse.class);
-        return userResponse;
+        UserResponse response = (new Gson()).fromJson(jsonResponse, UserResponse.class);
+        response.check();
+        return response;
     }
 
-    public UserListResponse listUsers() throws Exception {
+    public UserListResponse listUsers() throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.GET);
-        UserListResponse userListResponse = (new Gson()).fromJson(jsonResponse, UserListResponse.class);
-        return userListResponse;
+        UserListResponse response = (new Gson()).fromJson(jsonResponse, UserListResponse.class);
+        response.check();
+        return response;
     }
 
 }

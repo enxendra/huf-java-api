@@ -2,6 +2,7 @@ package com.enxendra.huf.api.service;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.draft.DraftAttachmentListResponse;
 import com.enxendra.huf.api.model.draft.DraftAttachmentResponse;
 import com.enxendra.huf.api.model.draft.DraftItemListResponse;
@@ -20,108 +21,122 @@ public class DraftService extends HUFService {
         this.urlBase = requestOptions.getApiBase() + "/organizations/" + orgId + "/" + SERVICE_PATH;
     }
 
-    public DraftResponse getDraft(Long id) throws Exception {
+    public DraftResponse getDraft(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.GET);
-        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
-        return draftResponse;
+        DraftResponse response = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftResponse sendDraft(Long id) throws Exception {
+    public DraftResponse sendDraft(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/send", RequestMethod.GET);
-        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
-        return draftResponse;
+        DraftResponse response = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftResponse previewDraft(Long id) throws Exception {
+    public DraftResponse previewDraft(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/preview", RequestMethod.GET);
-        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
-        return draftResponse;
+        DraftResponse response = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftResponse validateDraft(Long id) throws Exception {
+    public DraftResponse validateDraft(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/validate", RequestMethod.GET);
-        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
-        return draftResponse;
+        DraftResponse response = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftResponse createDraft(JsonObject body) throws Exception {
+    public DraftResponse createDraft(JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
-        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
-        return draftResponse;
+        DraftResponse response = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftResponse updateDraft(Long id, JsonObject body) throws Exception {
+    public DraftResponse updateDraft(Long id, JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
-        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
-        return draftResponse;
+        DraftResponse response = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftResponse deleteDraft(Long id) throws Exception {
+    public DraftResponse deleteDraft(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.DELETE);
-        DraftResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
-        return draftResponse;
+        DraftResponse response = (new Gson()).fromJson(jsonResponse, DraftResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftListResponse listDrafts() throws Exception {
+    public DraftListResponse listDrafts() throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.GET);
-        DraftListResponse draftListResponse = (new Gson()).fromJson(jsonResponse, DraftListResponse.class);
-        return draftListResponse;
+        DraftListResponse response = (new Gson()).fromJson(jsonResponse, DraftListResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftAttachmentResponse uploadDraftAttachment(JsonObject body, Long draftId) throws Exception {
+    public DraftAttachmentResponse uploadDraftAttachment(JsonObject body, Long draftId) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/attachments", RequestMethod.POST, body);
-        DraftAttachmentResponse draftResponse = (new Gson()).fromJson(jsonResponse, DraftAttachmentResponse.class);
-        return draftResponse;
+        DraftAttachmentResponse response = (new Gson()).fromJson(jsonResponse, DraftAttachmentResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftAttachmentListResponse listDraftAttachments(Long draftId) throws Exception {
+    public DraftAttachmentListResponse listDraftAttachments(Long draftId) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/attachments", RequestMethod.GET);
-        DraftAttachmentListResponse draftAttachmentListResponse = (new Gson()).fromJson(jsonResponse,
-                DraftAttachmentListResponse.class);
-        return draftAttachmentListResponse;
+        DraftAttachmentListResponse response = (new Gson()).fromJson(jsonResponse, DraftAttachmentListResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftAttachmentResponse getDraftAttachment(Long draftId, Long id) throws Exception {
+    public DraftAttachmentResponse getDraftAttachment(Long draftId, Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/attachments/" + id, RequestMethod.GET);
-        DraftAttachmentResponse draftAttachmentResponse = (new Gson()).fromJson(jsonResponse,
-                DraftAttachmentResponse.class);
-        return draftAttachmentResponse;
+        DraftAttachmentResponse response = (new Gson()).fromJson(jsonResponse, DraftAttachmentResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftAttachmentResponse deleteDraftAttachment(Long draftId, Long id) throws Exception {
+    public DraftAttachmentResponse deleteDraftAttachment(Long draftId, Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/attachments/" + id, RequestMethod.DELETE);
-        DraftAttachmentResponse draftAttachmentResponse = (new Gson()).fromJson(jsonResponse,
-                DraftAttachmentResponse.class);
-        return draftAttachmentResponse;
+        DraftAttachmentResponse response = (new Gson()).fromJson(jsonResponse, DraftAttachmentResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftItemResponse createDraftItem(JsonObject body, Long draftId) throws Exception {
+    public DraftItemResponse createDraftItem(JsonObject body, Long draftId) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/items", RequestMethod.POST, body);
-        DraftItemResponse draftItemResponse = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
-        return draftItemResponse;
+        DraftItemResponse response = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftItemResponse getDraftItem(Long draftId, Long id) throws Exception {
+    public DraftItemResponse getDraftItem(Long draftId, Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/items/" + id, RequestMethod.GET);
-        DraftItemResponse draftItemResponse = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
-        return draftItemResponse;
+        DraftItemResponse response = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftItemListResponse listDraftItems(Long draftId) throws Exception {
+    public DraftItemListResponse listDraftItems(Long draftId) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/items", RequestMethod.GET);
-        DraftItemListResponse draftItemListResponse = (new Gson()).fromJson(jsonResponse, DraftItemListResponse.class);
-        return draftItemListResponse;
+        DraftItemListResponse response = (new Gson()).fromJson(jsonResponse, DraftItemListResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftItemResponse updateDraftItem(JsonObject body, Long draftId, Long id) throws Exception {
+    public DraftItemResponse updateDraftItem(JsonObject body, Long draftId, Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/items/" + id, RequestMethod.PUT, body);
-        DraftItemResponse draftItemResponse = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
-        return draftItemResponse;
+        DraftItemResponse response = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
+        response.check();
+        return response;
     }
 
-    public DraftItemResponse deleteDraftItem(Long draftId, Long id) throws Exception {
+    public DraftItemResponse deleteDraftItem(Long draftId, Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/items/" + id, RequestMethod.DELETE);
-        DraftItemResponse draftItemResponse = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
-        return draftItemResponse;
+        DraftItemResponse response = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
+        response.check();
+        return response;
     }
 }

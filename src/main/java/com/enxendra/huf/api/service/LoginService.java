@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.user.LoginResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -17,10 +18,11 @@ public class LoginService extends HUFService {
         this.urlBase = requestOptions.getApiBase() + "/" + SERVICE_PATH;
     }
 
-    public LoginResponse login(Map<String, Object> params) throws Exception {
+    public LoginResponse login(Map<String, Object> params) throws HUFException {
         JsonObject jsonResponse = callService("", RequestMethod.GET, params);
-        LoginResponse loginResponse = (new Gson()).fromJson(jsonResponse, LoginResponse.class);
-        return loginResponse;
+        LoginResponse response = (new Gson()).fromJson(jsonResponse, LoginResponse.class);
+        response.check();
+        return response;
     }
 
 }

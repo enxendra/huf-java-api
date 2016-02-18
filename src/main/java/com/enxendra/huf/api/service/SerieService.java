@@ -2,6 +2,7 @@ package com.enxendra.huf.api.service;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.serie.SerieListResponse;
 import com.enxendra.huf.api.model.serie.SerieResponse;
 import com.google.gson.Gson;
@@ -16,34 +17,39 @@ public class SerieService extends HUFService {
         this.urlBase = requestOptions.getApiBase() + "/" + SERVICE_PATH;
     }
 
-    public SerieResponse getSerie(Long id) throws Exception {
+    public SerieResponse getSerie(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.GET);
-        SerieResponse serieResponse = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
-        return serieResponse;
+        SerieResponse response = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
+        response.check();
+        return response;
     }
 
-    public SerieResponse createSerie(JsonObject body) throws Exception {
+    public SerieResponse createSerie(JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
-        SerieResponse serieResponse = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
-        return serieResponse;
+        SerieResponse response = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
+        response.check();
+        return response;
     }
 
-    public SerieResponse updateSerie(Long id, JsonObject body) throws Exception {
+    public SerieResponse updateSerie(Long id, JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
-        SerieResponse serieResponse = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
-        return serieResponse;
+        SerieResponse response = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
+        response.check();
+        return response;
     }
 
-    public SerieResponse deleteSerie(Long id) throws Exception {
+    public SerieResponse deleteSerie(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.DELETE);
-        SerieResponse serieResponse = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
-        return serieResponse;
+        SerieResponse response = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
+        response.check();
+        return response;
     }
 
-    public SerieListResponse listSeries() throws Exception {
+    public SerieListResponse listSeries() throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.GET);
-        SerieListResponse serieListResponse = (new Gson()).fromJson(jsonResponse, SerieListResponse.class);
-        return serieListResponse;
+        SerieListResponse response = (new Gson()).fromJson(jsonResponse, SerieListResponse.class);
+        response.check();
+        return response;
     }
 
 }

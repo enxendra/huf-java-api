@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.invoice.InvoiceAttachmentListResponse;
 import com.enxendra.huf.api.model.invoice.InvoiceAttachmentResponse;
 import com.enxendra.huf.api.model.invoice.InvoiceListResponse;
@@ -20,71 +21,81 @@ public class InvoiceService extends HUFService {
         this.urlBase = requestOptions.getApiBase() + "/organizations/" + orgId + "/" + SERVICE_PATH;
     }
 
-    public InvoiceResponse getInvoice(Long id) throws Exception {
+    public InvoiceResponse getInvoice(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.GET);
-        InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
-        return invoiceResponse;
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceResponse updateInvoiceState(Long id, JsonObject body) throws Exception {
+    public InvoiceResponse updateInvoiceState(Long id, JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
-        InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
-        return invoiceResponse;
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceResponse deleteInvoice(Long id) throws Exception {
+    public InvoiceResponse deleteInvoice(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.DELETE);
-        InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
-        return invoiceResponse;
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceListResponse listInvoices(Map<String, Object> params) throws Exception {
+    public InvoiceListResponse listInvoices(Map<String, Object> params) throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.GET, params);
-        InvoiceListResponse invoiceListResponse = (new Gson()).fromJson(jsonResponse, InvoiceListResponse.class);
-        return invoiceListResponse;
+        InvoiceListResponse response = (new Gson()).fromJson(jsonResponse, InvoiceListResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceResponse acceptInvoice(Long id) throws Exception {
+    public InvoiceResponse acceptInvoice(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/accept", RequestMethod.PUT);
-        InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
-        return invoiceResponse;
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceResponse rejectInvoice(Long id) throws Exception {
+    public InvoiceResponse rejectInvoice(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/reject", RequestMethod.PUT);
-        InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
-        return invoiceResponse;
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceResponse exportInvoices(Map<String, Object> params) throws Exception {
+    public InvoiceResponse exportInvoices(Map<String, Object> params) throws HUFException {
         JsonObject jsonResponse = callService("/export", RequestMethod.GET, params);
-        InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
-        return invoiceResponse;
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceResponse getOriginal(Long id) throws Exception {
+    public InvoiceResponse getOriginal(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/original", RequestMethod.GET);
-        InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
-        return invoiceResponse;
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceResponse getPdf(Long id) throws Exception {
+    public InvoiceResponse getPdf(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/pdf", RequestMethod.GET);
-        InvoiceResponse invoiceResponse = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
-        return invoiceResponse;
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceAttachmentListResponse listInvoiceAttachments(Long invoiceId) throws Exception {
+    public InvoiceAttachmentListResponse listInvoiceAttachments(Long invoiceId) throws HUFException {
         JsonObject jsonResponse = callService("/" + invoiceId + "/attachments", RequestMethod.GET);
-        InvoiceAttachmentListResponse invoiceAttachmentListResponse = (new Gson()).fromJson(jsonResponse,
+        InvoiceAttachmentListResponse response = (new Gson()).fromJson(jsonResponse,
                 InvoiceAttachmentListResponse.class);
-        return invoiceAttachmentListResponse;
+        response.check();
+        return response;
     }
 
-    public InvoiceAttachmentResponse getInvoiceAttachment(Long invoiceId, Long id) throws Exception {
+    public InvoiceAttachmentResponse getInvoiceAttachment(Long invoiceId, Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + invoiceId + "/attachments/" + id, RequestMethod.GET);
-        InvoiceAttachmentResponse invoiceAttachmentResponse = (new Gson()).fromJson(jsonResponse,
-                InvoiceAttachmentResponse.class);
-        return invoiceAttachmentResponse;
+        InvoiceAttachmentResponse response = (new Gson()).fromJson(jsonResponse, InvoiceAttachmentResponse.class);
+        response.check();
+        return response;
     }
 }

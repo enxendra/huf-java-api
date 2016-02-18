@@ -2,6 +2,7 @@ package com.enxendra.huf.api.service;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.organization.OrganizationConfigurationResponse;
 import com.enxendra.huf.api.model.organization.OrganizationListResponse;
 import com.enxendra.huf.api.model.organization.OrganizationResponse;
@@ -17,49 +18,56 @@ public class OrganizationService extends HUFService {
         this.urlBase = requestOptions.getApiBase() + "/" + SERVICE_PATH;
     }
 
-    public OrganizationResponse getOrganization(Long id) throws Exception {
+    public OrganizationResponse getOrganization(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.GET);
-        OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
-        return organizationResponse;
+        OrganizationResponse response = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
+        response.check();
+        return response;
     }
 
-    public OrganizationResponse createOrganization(JsonObject body) throws Exception {
+    public OrganizationResponse createOrganization(JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
-        OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
-        return organizationResponse;
+        OrganizationResponse response = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
+        response.check();
+        return response;
     }
 
-    public OrganizationResponse updateOrganization(Long id, JsonObject body) throws Exception {
+    public OrganizationResponse updateOrganization(Long id, JsonObject body) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.PUT, body);
-        OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
-        return organizationResponse;
+        OrganizationResponse response = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
+        response.check();
+        return response;
     }
 
-    public OrganizationResponse deleteOrganization(Long id) throws Exception {
+    public OrganizationResponse deleteOrganization(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.DELETE);
-        OrganizationResponse organizationResponse = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
-        return organizationResponse;
+        OrganizationResponse response = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
+        response.check();
+        return response;
     }
 
-    public OrganizationListResponse listOrganizations() throws Exception {
+    public OrganizationListResponse listOrganizations() throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.GET);
-        OrganizationListResponse organizationListResponse = (new Gson()).fromJson(jsonResponse,
-                OrganizationListResponse.class);
-        return organizationListResponse;
+        OrganizationListResponse response = (new Gson()).fromJson(jsonResponse, OrganizationListResponse.class);
+        response.check();
+        return response;
     }
 
-    public OrganizationConfigurationResponse getOrganizationConfiguration(Long id) throws Exception {
+    public OrganizationConfigurationResponse getOrganizationConfiguration(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/configuration", RequestMethod.GET);
-        OrganizationConfigurationResponse organizationConfigurationResponse = (new Gson()).fromJson(jsonResponse,
+        OrganizationConfigurationResponse response = (new Gson()).fromJson(jsonResponse,
                 OrganizationConfigurationResponse.class);
-        return organizationConfigurationResponse;
+        response.check();
+        return response;
     }
 
-    public OrganizationConfigurationResponse updateOrganizationConfiguration(Long id, JsonObject body) throws Exception {
+    public OrganizationConfigurationResponse updateOrganizationConfiguration(Long id, JsonObject body)
+            throws HUFException {
         JsonObject jsonResponse = callService("/" + id + "/configuration", RequestMethod.PUT, body);
-        OrganizationConfigurationResponse organizationConfigurationResponse = (new Gson()).fromJson(jsonResponse,
+        OrganizationConfigurationResponse response = (new Gson()).fromJson(jsonResponse,
                 OrganizationConfigurationResponse.class);
-        return organizationConfigurationResponse;
+        response.check();
+        return response;
     }
 
 }

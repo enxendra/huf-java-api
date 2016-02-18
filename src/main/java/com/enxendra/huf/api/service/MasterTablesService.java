@@ -2,6 +2,7 @@ package com.enxendra.huf.api.service;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.mastertables.DeliveryMethodsResponse;
 import com.enxendra.huf.api.model.mastertables.InvoiceStatesResponse;
 import com.enxendra.huf.api.model.mastertables.PaymentMeansResponse;
@@ -20,42 +21,46 @@ public class MasterTablesService extends HUFService {
         this.urlBase = requestOptions.getApiBase() + "/" + SERVICE_PATH;
     }
 
-    public RolesResponse listRoles() throws Exception {
+    public RolesResponse listRoles() throws HUFException {
         JsonObject jsonResponse = callService("/roles", RequestMethod.GET);
-        RolesResponse rolesResponse = (new Gson()).fromJson(jsonResponse, RolesResponse.class);
-        return rolesResponse;
+        RolesResponse response = (new Gson()).fromJson(jsonResponse, RolesResponse.class);
+        response.check();
+        return response;
     }
 
-    public DeliveryMethodsResponse listDeliveryMethods() throws Exception {
+    public DeliveryMethodsResponse listDeliveryMethods() throws HUFException {
         JsonObject jsonResponse = callService("/deliverymethods", RequestMethod.GET);
-        DeliveryMethodsResponse deliveryMethodsResponse = (new Gson()).fromJson(jsonResponse,
-                DeliveryMethodsResponse.class);
-        return deliveryMethodsResponse;
+        DeliveryMethodsResponse response = (new Gson()).fromJson(jsonResponse, DeliveryMethodsResponse.class);
+        response.check();
+        return response;
     }
 
-    public InvoiceStatesResponse listInvoiceStates() throws Exception {
+    public InvoiceStatesResponse listInvoiceStates() throws HUFException {
         JsonObject jsonResponse = callService("/invoicestates", RequestMethod.GET);
-        InvoiceStatesResponse invoiceStatesResponse = (new Gson()).fromJson(jsonResponse, InvoiceStatesResponse.class);
-        return invoiceStatesResponse;
+        InvoiceStatesResponse response = (new Gson()).fromJson(jsonResponse, InvoiceStatesResponse.class);
+        response.check();
+        return response;
     }
 
-    public PaymentMeansResponse listPaymentMeans() throws Exception {
+    public PaymentMeansResponse listPaymentMeans() throws HUFException {
         JsonObject jsonResponse = callService("/paymentmeans", RequestMethod.GET);
-        PaymentMeansResponse paymentMeansResponse = (new Gson()).fromJson(jsonResponse, PaymentMeansResponse.class);
-        return paymentMeansResponse;
+        PaymentMeansResponse response = (new Gson()).fromJson(jsonResponse, PaymentMeansResponse.class);
+        response.check();
+        return response;
     }
 
-    public TaxesResponse listTaxes() throws Exception {
+    public TaxesResponse listTaxes() throws HUFException {
         JsonObject jsonResponse = callService("/taxes", RequestMethod.GET);
-        TaxesResponse taxesResponse = (new Gson()).fromJson(jsonResponse, TaxesResponse.class);
-        return taxesResponse;
+        TaxesResponse response = (new Gson()).fromJson(jsonResponse, TaxesResponse.class);
+        response.check();
+        return response;
     }
 
-    public UnitsOfMeasureResponse listUnitsOfMeasure() throws Exception {
+    public UnitsOfMeasureResponse listUnitsOfMeasure() throws HUFException {
         JsonObject jsonResponse = callService("/unitsofmeasure", RequestMethod.GET);
-        UnitsOfMeasureResponse unitsOfMeasureResponse = (new Gson()).fromJson(jsonResponse,
-                UnitsOfMeasureResponse.class);
-        return unitsOfMeasureResponse;
+        UnitsOfMeasureResponse response = (new Gson()).fromJson(jsonResponse, UnitsOfMeasureResponse.class);
+        response.check();
+        return response;
     }
 
 }
