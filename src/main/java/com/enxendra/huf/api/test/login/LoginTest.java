@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.user.LoginResponse;
 import com.enxendra.huf.api.service.LoginService;
 import com.enxendra.huf.api.test.ServiceTest;
@@ -29,12 +30,9 @@ public class LoginTest extends ServiceTest {
                 System.out.println(loginResponse.getData().getUserName());
                 System.out.println(loginResponse.getData().getUserToken());
 
-            } else {
-                System.out.println("ERROR " + loginResponse.getErrorCode() + ": " + loginResponse.getErrorMessage());
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HUFException e) {
+            System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
         }
     }
 
