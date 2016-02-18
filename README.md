@@ -24,18 +24,7 @@ The first step to use this library is to specify your API_KEY  and the endpoint 
 
 To get a USER_TOKEN you need to login with an existing user. This is an example of the login process:
 
-```
-package com.enxendra.huf.api.test.login;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import com.enxendra.huf.api.Constants;
-import com.enxendra.huf.api.RequestOptions;
-import com.enxendra.huf.api.exception.HUFException;
-import com.enxendra.huf.api.model.user.LoginResponse;
-import com.enxendra.huf.api.service.LoginService;
-import com.enxendra.huf.api.test.ServiceTest;
+```java
 
 public class LoginTest extends ServiceTest {
 
@@ -63,7 +52,6 @@ System.out.println(" - Error - " + e.getCode() + ": " + e.getMessage());
 }
 }
 
-}
 
 ```
 
