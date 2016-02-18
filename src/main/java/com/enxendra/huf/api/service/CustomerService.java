@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.customer.CustomerConfigurationResponse;
 import com.enxendra.huf.api.model.customer.CustomerListResponse;
 import com.enxendra.huf.api.model.customer.CustomerResponse;
@@ -25,9 +26,17 @@ public class CustomerService extends HUFService {
         return customerResponse;
     }
 
-    public CustomerResponse createCustomer(JsonObject body) throws Exception {
-        JsonObject jsonResponse = callService("/", RequestMethod.POST, body);
+    public CustomerResponse createCustomer(JsonObject body) throws HUFException {
+        JsonObject jsonResponse = null;
+
+        try {
+            jsonResponse = callService("/", RequestMethod.POST, body);
+        } catch (Exception e) {
+            throw new HUFException(e.getMessage(), "S/N", e);
+        }
+
         CustomerResponse customerResponse = (new Gson()).fromJson(jsonResponse, CustomerResponse.class);
+        customerResponse.check();
         return customerResponse;
     }
 
