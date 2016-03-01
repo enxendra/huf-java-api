@@ -12,7 +12,7 @@ public class ListDraftsTest extends ServiceTest {
     static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST, USR_TOKEN);
 
     public static void main(String[] args) {
-        DraftService service = new DraftService(requestOptions, new Long(27));
+        DraftService service = new DraftService(requestOptions, new Long(363));
 
         try {
 

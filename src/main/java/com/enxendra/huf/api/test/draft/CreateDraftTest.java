@@ -17,7 +17,7 @@ public class CreateDraftTest extends ServiceTest {
 
         JsonObject body = new JsonObject();
 
-        body.addProperty("cusId", "115");
+        body.addProperty("cusId", "1150");
 
         try {
             DraftResponse draftResponse = service.createDraft(body);
