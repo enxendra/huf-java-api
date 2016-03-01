@@ -20,9 +20,6 @@ public class ListCustomersTest extends ServiceTest {
 
         Map<String, Object> params = new HashMap<String, Object>();
 
-        params.put("customer_name", "Diego");
-        params.put("customer_tax_number", "A000");
-        params.put("order", "DESC");
         params.put("page", 1);
         params.put("page_size", 10);
 

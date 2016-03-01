@@ -2,6 +2,7 @@ package com.enxendra.huf.api.test.organization;
 
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
+import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.organization.OrganizationResponse;
 import com.enxendra.huf.api.service.OrganizationService;
 import com.enxendra.huf.api.test.ServiceTest;
@@ -16,29 +17,26 @@ public class UpdateOrganizationTest extends ServiceTest {
 
         JsonObject body = new JsonObject();
 
-        body.addProperty("poblation", "A Coruña");
-        body.addProperty("phone", "666666666");
-        body.addProperty("post_code", "15009");
-        body.addProperty("web_url", "www.test.com");
+        body.addProperty("poblation", "Poblation");
+        body.addProperty("logo", "TestLogo");
+        body.addProperty("phone", "555-1234");
+        body.addProperty("post_code", "999999");
+        body.addProperty("web_url", "www.test organization.es");
+        body.addProperty("fist_surname", "FirstSurname");
+        body.addProperty("second_surname", "SecondSurname");
         body.addProperty("country_code", "ESP");
         body.addProperty("email", "test@test.com");
         body.addProperty("address", "Padre Pita, 10");
-        body.addProperty("tax_number", "0126038778S");
+        body.addProperty("tax_number", "123456");
         body.addProperty("name", "Sopo Technologies, S.L.");
         body.addProperty("province", "A Coruña");
+        body.addProperty("id", 364);
 
         try {
-            OrganizationResponse organizationResponse = service.updateOrganization(new Long(363), body);
+            OrganizationResponse organizationResponse = service.updateOrganization(new Long(364), body);
+            System.out.println("Organization updated");
 
-            if (organizationResponse.getResponseCode().equals(Constants.OK)) {
-                System.out.println("Organization updated");
-
-            } else {
-                System.out.println("ERROR " + organizationResponse.getErrorCode() + ": "
-                        + organizationResponse.getErrorMessage());
-            }
-
-        } catch (Exception e) {
+        } catch (HUFException e) {
             e.printStackTrace();
         }
     }

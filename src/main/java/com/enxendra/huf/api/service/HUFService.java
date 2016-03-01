@@ -108,7 +108,8 @@ public class HUFService {
             // Add response code and message to the json object
             JsonObject jsonObject = rootElement.getAsJsonObject();
             jsonObject.addProperty("responseCode", urlConnection.getResponseCode());
-            jsonObject.addProperty("responseMessage", urlConnection.getResponseMessage());
+            String responseMessage = urlConnection.getResponseMessage();
+            jsonObject.addProperty("responseMessage", responseMessage.equals("Creado") ? "CREATED" : responseMessage);
 
             return jsonObject;
 
