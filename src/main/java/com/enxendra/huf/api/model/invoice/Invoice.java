@@ -39,6 +39,7 @@ public class Invoice {
     public String original;
     public String pdf;
     public String export;
+    public String reason;
 
     public String getId() {
         return id;
@@ -254,6 +255,14 @@ public class Invoice {
 
     public void setExport(String export) {
         this.export = export;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 
 }

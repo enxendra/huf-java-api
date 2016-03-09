@@ -35,6 +35,20 @@ public class InvoiceService extends HUFService {
         return response;
     }
 
+    public InvoiceResponse acceptInvoice(Long id) throws HUFException {
+        JsonObject jsonResponse = callService("/" + id + "/accept", RequestMethod.PUT);
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
+    }
+
+    public InvoiceResponse rejectInvoice(Long id, JsonObject body) throws HUFException {
+        JsonObject jsonResponse = callService("/" + id + "/reject", RequestMethod.PUT, body);
+        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
+        response.check();
+        return response;
+    }
+
     public InvoiceResponse deleteInvoice(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.DELETE);
         InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
@@ -45,20 +59,6 @@ public class InvoiceService extends HUFService {
     public InvoiceListResponse listInvoices(Map<String, Object> params) throws HUFException {
         JsonObject jsonResponse = callService("/", RequestMethod.GET, params);
         InvoiceListResponse response = (new Gson()).fromJson(jsonResponse, InvoiceListResponse.class);
-        response.check();
-        return response;
-    }
-
-    public InvoiceResponse acceptInvoice(Long id) throws HUFException {
-        JsonObject jsonResponse = callService("/" + id + "/accept", RequestMethod.PUT);
-        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
-        response.check();
-        return response;
-    }
-
-    public InvoiceResponse rejectInvoice(Long id) throws HUFException {
-        JsonObject jsonResponse = callService("/" + id + "/reject", RequestMethod.PUT);
-        InvoiceResponse response = (new Gson()).fromJson(jsonResponse, InvoiceResponse.class);
         response.check();
         return response;
     }
