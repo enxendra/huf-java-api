@@ -4,6 +4,7 @@ import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.mastertables.DeliveryMethodsResponse;
+import com.enxendra.huf.api.model.mastertables.InvoiceFormatsResponse;
 import com.enxendra.huf.api.model.mastertables.InvoiceStatesResponse;
 import com.enxendra.huf.api.model.mastertables.PaymentMeansResponse;
 import com.enxendra.huf.api.model.mastertables.RolesResponse;
@@ -59,6 +60,13 @@ public class MasterTablesService extends HUFService {
     public UnitsOfMeasureResponse listUnitsOfMeasure() throws HUFException {
         JsonObject jsonResponse = callService("/unitsofmeasure", RequestMethod.GET);
         UnitsOfMeasureResponse response = (new Gson()).fromJson(jsonResponse, UnitsOfMeasureResponse.class);
+        response.check();
+        return response;
+    }
+
+    public InvoiceFormatsResponse listInvoiceFormats() {
+        JsonObject jsonResponse = callService("/invoiceformats", RequestMethod.GET);
+        InvoiceFormatsResponse response = (new Gson()).fromJson(jsonResponse, InvoiceFormatsResponse.class);
         response.check();
         return response;
     }
