@@ -20,9 +20,9 @@ public class ExportInvoicesTest extends ServiceTest {
         try {
             Map<String, Object> params = new HashMap<String, Object>(0);
 
-            params.put("export_format", "XLS");
-            params.put("date_from", "2016-03-01");
-            params.put("date_to", "2016-03-31");
+            params.put("export_format", "PDF");
+            params.put("date_from", "2015-03-01");
+            params.put("date_to", "2015-03-31");
 
             ExportResponse exportResponse = service.export(params);
 
