@@ -1,8 +1,11 @@
 package com.enxendra.huf.api.service;
 
+import java.util.Map;
+
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.exception.HUFException;
+import com.enxendra.huf.api.model.organization.ActivityResponse;
 import com.enxendra.huf.api.model.organization.OrganizationConfigurationResponse;
 import com.enxendra.huf.api.model.organization.OrganizationListResponse;
 import com.enxendra.huf.api.model.organization.OrganizationResponse;
@@ -66,6 +69,13 @@ public class OrganizationService extends HUFService {
         JsonObject jsonResponse = callService("/" + id + "/configuration", RequestMethod.PUT, body);
         OrganizationConfigurationResponse response = (new Gson()).fromJson(jsonResponse,
                 OrganizationConfigurationResponse.class);
+        response.check();
+        return response;
+    }
+
+    public ActivityResponse activity(Long orgId, Map<String, Object> params) throws HUFException {
+        JsonObject jsonResponse = callService("/" + orgId + "/activity", RequestMethod.GET, params);
+        ActivityResponse response = (new Gson()).fromJson(jsonResponse, ActivityResponse.class);
         response.check();
         return response;
     }
