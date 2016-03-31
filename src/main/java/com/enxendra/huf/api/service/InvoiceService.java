@@ -5,10 +5,12 @@ import java.util.Map;
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.exception.HUFException;
+import com.enxendra.huf.api.model.invoice.ExportResponse;
 import com.enxendra.huf.api.model.invoice.InvoiceAttachmentListResponse;
 import com.enxendra.huf.api.model.invoice.InvoiceAttachmentResponse;
 import com.enxendra.huf.api.model.invoice.InvoiceListResponse;
 import com.enxendra.huf.api.model.invoice.InvoiceResponse;
+import com.enxendra.huf.api.model.invoice.StatisticsResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -95,6 +97,20 @@ public class InvoiceService extends HUFService {
     public InvoiceAttachmentResponse getInvoiceAttachment(Long invoiceId, Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + invoiceId + "/attachments/" + id, RequestMethod.GET);
         InvoiceAttachmentResponse response = (new Gson()).fromJson(jsonResponse, InvoiceAttachmentResponse.class);
+        response.check();
+        return response;
+    }
+
+    public StatisticsResponse statistics(Map<String, Object> params) throws HUFException {
+        JsonObject jsonResponse = callService("/statistics", RequestMethod.GET, params);
+        StatisticsResponse response = (new Gson()).fromJson(jsonResponse, StatisticsResponse.class);
+        response.check();
+        return response;
+    }
+
+    public ExportResponse export(Map<String, Object> params) throws HUFException {
+        JsonObject jsonResponse = callService("/export", RequestMethod.GET, params);
+        ExportResponse response = (new Gson()).fromJson(jsonResponse, ExportResponse.class);
         response.check();
         return response;
     }
