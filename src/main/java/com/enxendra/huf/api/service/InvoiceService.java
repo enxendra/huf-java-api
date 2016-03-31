@@ -11,6 +11,7 @@ import com.enxendra.huf.api.model.invoice.InvoiceAttachmentResponse;
 import com.enxendra.huf.api.model.invoice.InvoiceListResponse;
 import com.enxendra.huf.api.model.invoice.InvoiceResponse;
 import com.enxendra.huf.api.model.invoice.StatisticsResponse;
+import com.enxendra.huf.api.model.invoice.TotalResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -111,6 +112,41 @@ public class InvoiceService extends HUFService {
     public ExportResponse export(Map<String, Object> params) throws HUFException {
         JsonObject jsonResponse = callService("/export", RequestMethod.GET, params);
         ExportResponse response = (new Gson()).fromJson(jsonResponse, ExportResponse.class);
+        response.check();
+        return response;
+    }
+
+    public TotalResponse totalInvoiced(Map<String, Object> params) throws HUFException {
+        JsonObject jsonResponse = callService("/total_invoiced", RequestMethod.GET, params);
+        TotalResponse response = (new Gson()).fromJson(jsonResponse, TotalResponse.class);
+        response.check();
+        return response;
+    }
+
+    public TotalResponse totalExpected(Map<String, Object> params) throws HUFException {
+        JsonObject jsonResponse = callService("/total_expected", RequestMethod.GET, params);
+        TotalResponse response = (new Gson()).fromJson(jsonResponse, TotalResponse.class);
+        response.check();
+        return response;
+    }
+
+    public TotalResponse totalPaid(Map<String, Object> params) throws HUFException {
+        JsonObject jsonResponse = callService("/total_paid", RequestMethod.GET, params);
+        TotalResponse response = (new Gson()).fromJson(jsonResponse, TotalResponse.class);
+        response.check();
+        return response;
+    }
+
+    public TotalResponse totalFaulty(Map<String, Object> params) throws HUFException {
+        JsonObject jsonResponse = callService("/total_faulty", RequestMethod.GET, params);
+        TotalResponse response = (new Gson()).fromJson(jsonResponse, TotalResponse.class);
+        response.check();
+        return response;
+    }
+
+    public TotalResponse totalUnpaid(Map<String, Object> params) throws HUFException {
+        JsonObject jsonResponse = callService("/total_unpaid", RequestMethod.GET, params);
+        TotalResponse response = (new Gson()).fromJson(jsonResponse, TotalResponse.class);
         response.check();
         return response;
     }
