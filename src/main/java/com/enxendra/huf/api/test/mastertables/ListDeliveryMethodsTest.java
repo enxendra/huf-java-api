@@ -14,6 +14,8 @@ public class ListDeliveryMethodsTest extends ServiceTest {
 
     public static void main(String[] args) {
         MasterTablesService service = new MasterTablesService(requestOptions);
+        service.setConnectTimeOut(10000);
+        service.setReadTimeOut(10000);
 
         try {
             DeliveryMethodsResponse deliveryMethodsResponse = service.listDeliveryMethods();

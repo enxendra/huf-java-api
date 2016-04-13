@@ -27,13 +27,13 @@ public class UpdateOrganizationTest extends ServiceTest {
         body.addProperty("country_code", "ESP");
         body.addProperty("email", "test@test.com");
         body.addProperty("address", "Padre Pita, 10");
-        body.addProperty("tax_number", "123456");
+        body.addProperty("tax_number", "011038778L");
         body.addProperty("name", "Sopo Technologies, S.L.");
         body.addProperty("province", "A Coruña");
         body.addProperty("id", 364);
 
         try {
-            OrganizationResponse organizationResponse = service.updateOrganization(new Long(364), body);
+            OrganizationResponse organizationResponse = service.updateOrganization(new Long(507), body);
             System.out.println("Organization updated");
 
         } catch (HUFException e) {
