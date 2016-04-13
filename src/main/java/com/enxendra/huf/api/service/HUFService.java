@@ -22,6 +22,8 @@ public class HUFService {
 
     protected RequestOptions requestOptions;
     protected String urlBase;
+    protected Integer connectTimeOut;
+    protected Integer readTimeOut;
 
     public RequestOptions getRequestOptions() {
         return requestOptions;
@@ -86,6 +88,12 @@ public class HUFService {
             urlConnection.setRequestProperty(Constants.AUTH, Constants.BASIC + " " + requestOptions.getApiKey());
             urlConnection.setRequestMethod(requestMethod.name());
 
+            if (getConnectTimeOut() != null)
+                urlConnection.setConnectTimeout(getConnectTimeOut());
+
+            if (getReadTimeOut() != null)
+                urlConnection.setReadTimeout(getReadTimeOut());
+
             // Add body (only if there is a body JsonObject and it is not a GET request)
             if (body != null && !requestMethod.equals(RequestMethod.GET)) {
                 urlConnection.setDoOutput(true);
@@ -137,6 +145,22 @@ public class HUFService {
 
         return "?" + result.toString();
 
+    }
+
+    public Integer getConnectTimeOut() {
+        return connectTimeOut;
+    }
+
+    public void setConnectTimeOut(Integer connectTimeOut) {
+        this.connectTimeOut = connectTimeOut;
+    }
+
+    public Integer getReadTimeOut() {
+        return readTimeOut;
+    }
+
+    public void setReadTimeOut(Integer readTimeOut) {
+        this.readTimeOut = readTimeOut;
     }
 
 }
