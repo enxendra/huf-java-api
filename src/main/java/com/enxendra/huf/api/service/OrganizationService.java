@@ -80,4 +80,11 @@ public class OrganizationService extends HUFService {
         return response;
     }
 
+    public OrganizationResponse deleteActivity(Long orgId, Long id) throws HUFException {
+        JsonObject jsonResponse = callService("/" + orgId + "/activity/" + id, RequestMethod.DELETE);
+        OrganizationResponse response = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
+        response.check();
+        return response;
+    }
+
 }
