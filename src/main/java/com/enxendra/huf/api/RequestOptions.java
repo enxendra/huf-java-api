@@ -8,6 +8,8 @@ public class RequestOptions {
     private String apiBase;
     private String userToken;
 
+    public RequestOptions() {}
+
     public RequestOptions(String apiKey, String apiBase, String userToken) {
         super();
         this.apiKey = apiKey;
