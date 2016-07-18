@@ -3,7 +3,7 @@ package com.enxendra.huf.api.test.serie;
 import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.model.serie.SerieResponse;
-import com.enxendra.huf.api.service.SerieService;
+import com.enxendra.huf.api.service.OrganizationService;
 import com.enxendra.huf.api.test.ServiceTest;
 import com.google.gson.JsonObject;
 
@@ -12,7 +12,7 @@ public class CreateSerieTest extends ServiceTest {
     static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST, USR_TOKEN);
 
     public static void main(String[] args) {
-        SerieService service = new SerieService(requestOptions);
+        OrganizationService service = new OrganizationService(requestOptions);
 
         JsonObject body = new JsonObject();
 
@@ -27,7 +27,7 @@ public class CreateSerieTest extends ServiceTest {
         body.addProperty("next_number", "3");
 
         try {
-            SerieResponse serieResponse = service.createSerie(body);
+            SerieResponse serieResponse = service.createSerie(new Long(359), body);
 
             if (serieResponse.getResponseCode().equals(Constants.CREATED_OR_UPDATED)) {
                 System.out.println("The new serie has the following id: " + serieResponse.getData().getId());
