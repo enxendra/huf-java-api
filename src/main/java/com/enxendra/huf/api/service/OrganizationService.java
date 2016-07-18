@@ -9,6 +9,8 @@ import com.enxendra.huf.api.model.organization.ActivityResponse;
 import com.enxendra.huf.api.model.organization.OrganizationConfigurationResponse;
 import com.enxendra.huf.api.model.organization.OrganizationListResponse;
 import com.enxendra.huf.api.model.organization.OrganizationResponse;
+import com.enxendra.huf.api.model.serie.SerieListResponse;
+import com.enxendra.huf.api.model.serie.SerieResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -83,6 +85,41 @@ public class OrganizationService extends HUFService {
     public OrganizationResponse deleteActivity(Long orgId, Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + orgId + "/activity/" + id, RequestMethod.DELETE);
         OrganizationResponse response = (new Gson()).fromJson(jsonResponse, OrganizationResponse.class);
+        response.check();
+        return response;
+    }
+
+    public SerieResponse getSerie(Long orgId, Long id) throws HUFException {
+        JsonObject jsonResponse = callService("/" + orgId + "/series/" + id, RequestMethod.GET);
+        SerieResponse response = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
+        response.check();
+        return response;
+    }
+
+    public SerieResponse createSerie(Long orgId, JsonObject body) throws HUFException {
+        JsonObject jsonResponse = callService("/" + orgId + "/series/", RequestMethod.POST, body);
+        SerieResponse response = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
+        response.check();
+        return response;
+    }
+
+    public SerieResponse updateSerie(Long orgId, Long id, JsonObject body) throws HUFException {
+        JsonObject jsonResponse = callService("/" + orgId + "/series/" + id, RequestMethod.PUT, body);
+        SerieResponse response = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
+        response.check();
+        return response;
+    }
+
+    public SerieResponse deleteSerie(Long orgId, Long id) throws HUFException {
+        JsonObject jsonResponse = callService("/" + orgId + "/series/" + id, RequestMethod.DELETE);
+        SerieResponse response = (new Gson()).fromJson(jsonResponse, SerieResponse.class);
+        response.check();
+        return response;
+    }
+
+    public SerieListResponse listSeries(Long orgId) throws HUFException {
+        JsonObject jsonResponse = callService("/" + orgId + "/series/", RequestMethod.GET);
+        SerieListResponse response = (new Gson()).fromJson(jsonResponse, SerieListResponse.class);
         response.check();
         return response;
     }
