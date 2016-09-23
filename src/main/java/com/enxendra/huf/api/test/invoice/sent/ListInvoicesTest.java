@@ -19,7 +19,6 @@ public class ListInvoicesTest extends ServiceTest {
 
         Map<String, Object> params = new HashMap<String, Object>();
 
-        params.put("sort_by", "invoice_number");
         params.put("order", "DESC");
         params.put("page", 1);
         params.put("page_size", 10);
