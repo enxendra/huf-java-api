@@ -3,7 +3,6 @@ package com.enxendra.huf.api.service;
 import java.util.Map;
 
 import com.enxendra.huf.api.RequestMethod;
-import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.exception.HUFException;
 import com.enxendra.huf.api.model.invoice.ExportResponse;
 import com.enxendra.huf.api.model.invoice.InvoiceAttachmentListResponse;
@@ -16,13 +15,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 public class InvoiceService extends HUFService {
-
-    private static final String SERVICE_PATH = "invoices";
-
-    public InvoiceService(RequestOptions requestOptions, Long orgId) {
-        this.requestOptions = requestOptions;
-        this.urlBase = requestOptions.getApiBase() + "/organizations/" + orgId + "/" + SERVICE_PATH;
-    }
 
     public InvoiceResponse getInvoice(Long id) throws HUFException {
         JsonObject jsonResponse = callService("/" + id, RequestMethod.GET);
