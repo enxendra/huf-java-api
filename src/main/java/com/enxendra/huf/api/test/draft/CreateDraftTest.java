@@ -13,11 +13,11 @@ public class CreateDraftTest extends ServiceTest {
     static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST, USR_TOKEN);
 
     public static void main(String[] args) {
-        DraftService service = new DraftService(requestOptions, new Long(363));
+        DraftService service = new DraftService(requestOptions, new Long(355));
 
         JsonObject body = new JsonObject();
 
-        body.addProperty("cusId", "1150");
+        body.addProperty("cusId", "2230");
 
         try {
             DraftResponse draftResponse = service.createDraft(body);

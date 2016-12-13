@@ -15,7 +15,7 @@ public class UpdateDraftTest extends ServiceTest {
     static RequestOptions requestOptions = new RequestOptions(API_KEY, Constants.API_STR_TEST, USR_TOKEN);
 
     public static void main(String[] args) {
-        DraftService service = new DraftService(requestOptions, new Long(27));
+        DraftService service = new DraftService(requestOptions, new Long(355));
 
         JsonObject body = new JsonObject();
 
@@ -25,14 +25,14 @@ public class UpdateDraftTest extends ServiceTest {
         body = parser.parse((new Gson()).toJson(draft, Draft.class)).getAsJsonObject();
 
         try {
-            DraftResponse customerResponse = service.updateDraft(new Long(17028), body);
+            DraftResponse customerResponse = service.updateDraft(new Long(40561), body);
 
             if (customerResponse.getResponseCode().equals(Constants.OK)) {
                 System.out.println("Draft updated");
 
             } else {
-                System.out.println("ERROR " + customerResponse.getErrorCode() + ": "
-                        + customerResponse.getErrorMessage());
+                System.out.println(
+                        "ERROR " + customerResponse.getErrorCode() + ": " + customerResponse.getErrorMessage());
             }
 
         } catch (Exception e) {
