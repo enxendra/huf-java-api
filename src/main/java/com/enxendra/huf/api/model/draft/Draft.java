@@ -25,6 +25,7 @@ public class Draft {
     public String dir3_code_1;
     public String dir3_code_2;
     public String dir3_code_3;
+    public String dir3_code_4;
     public String currency;
     public String comments;
     public Sender sender;
@@ -282,6 +283,14 @@ public class Draft {
 
     public void setDir3_code_3(String dir3_code_3) {
         this.dir3_code_3 = dir3_code_3;
+    }
+
+    public String getDir3_code_4() {
+        return dir3_code_4;
+    }
+
+    public void setDir3_code_4(String dir3_code_4) {
+        this.dir3_code_4 = dir3_code_4;
     }
 
 }
