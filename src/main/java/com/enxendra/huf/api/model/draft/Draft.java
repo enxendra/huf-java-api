@@ -22,6 +22,9 @@ public class Draft {
     public String series_id;
     public String gross_amount;
     public String total_to_pay;
+    public String dir3_code_1;
+    public String dir3_code_2;
+    public String dir3_code_3;
     public String currency;
     public String comments;
     public Sender sender;
@@ -255,6 +258,30 @@ public class Draft {
 
     public void setInvoiceErrors(Map<String, String> invoice_errors) {
         this.invoice_errors = invoice_errors;
+    }
+
+    public String getDir3_code_1() {
+        return dir3_code_1;
+    }
+
+    public void setDir3_code_1(String dir3_code_1) {
+        this.dir3_code_1 = dir3_code_1;
+    }
+
+    public String getDir3_code_2() {
+        return dir3_code_2;
+    }
+
+    public void setDir3_code_2(String dir3_code_2) {
+        this.dir3_code_2 = dir3_code_2;
+    }
+
+    public String getDir3_code_3() {
+        return dir3_code_3;
+    }
+
+    public void setDir3_code_3(String dir3_code_3) {
+        this.dir3_code_3 = dir3_code_3;
     }
 
 }
