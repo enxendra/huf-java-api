@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.enxendra.huf</groupId>
-  <artifactId>java-api</artifactId>
+  <artifactId>huf-java-api</artifactId>
   <packaging>jar</packaging>
 
-  <name>java-api</name>
+  <name>huf-java-api</name>
   <url>http://maven.apache.org</url>
 
   <properties>
