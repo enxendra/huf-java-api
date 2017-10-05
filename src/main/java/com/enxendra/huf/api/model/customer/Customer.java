@@ -5,8 +5,8 @@ public class Customer {
     private Long id;
     private String tax_number;
     private String name;
-    private String first_name;
-    private String second_name;
+    private String first_surname;
+    private String second_surname;
     private String address;
     private String poblation;
     private String province;
@@ -29,12 +29,12 @@ public class Customer {
         return name;
     }
 
-    public String getFirstName() {
-        return first_name;
+    public String getFirstSurName (){
+        return first_surname;
     }
 
-    public String getSecondName() {
-        return second_name;
+    public String getSecondSurName (){
+        return second_surname;
     }
 
     public String getAddress() {
@@ -85,12 +85,12 @@ public class Customer {
         this.name = name;
     }
 
-    public void setFirstName(String first_name) {
-        this.first_name = first_name;
+    public void setFirstSurName (String first_surname){
+        this.first_surname = first_surname;
     }
 
-    public void setSecondName(String second_name) {
-        this.second_name = second_name;
+    public void setSecondSurName (String second_surname){
+        this.second_surname = second_surname;
     }
 
     public void setAddress(String address) {
