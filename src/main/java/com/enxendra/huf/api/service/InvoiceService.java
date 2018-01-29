@@ -101,6 +101,13 @@ public class InvoiceService extends HUFService {
         return response;
     }
 
+    public StatisticsResponse statisticsByRange(Map<String, Object> params) throws HUFException {
+        JsonObject jsonResponse = callService("/statistics/byrange", RequestMethod.GET, params);
+        StatisticsResponse response = (new Gson()).fromJson(jsonResponse, StatisticsResponse.class);
+        response.check();
+        return response;
+    }
+
     public ExportResponse export(Map<String, Object> params) throws HUFException {
         JsonObject jsonResponse = callService("/export", RequestMethod.GET, params);
         ExportResponse response = (new Gson()).fromJson(jsonResponse, ExportResponse.class);

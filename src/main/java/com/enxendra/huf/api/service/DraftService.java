@@ -3,13 +3,9 @@ package com.enxendra.huf.api.service;
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.exception.HUFException;
-import com.enxendra.huf.api.model.draft.DraftAttachmentListResponse;
-import com.enxendra.huf.api.model.draft.DraftAttachmentResponse;
-import com.enxendra.huf.api.model.draft.DraftItemListResponse;
-import com.enxendra.huf.api.model.draft.DraftItemResponse;
-import com.enxendra.huf.api.model.draft.DraftListResponse;
-import com.enxendra.huf.api.model.draft.DraftResponse;
+import com.enxendra.huf.api.model.draft.*;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class DraftService extends HUFService {
@@ -108,6 +104,13 @@ public class DraftService extends HUFService {
     public DraftItemResponse createDraftItem(JsonObject body, Long draftId) throws HUFException {
         JsonObject jsonResponse = callService("/" + draftId + "/items", RequestMethod.POST, body);
         DraftItemResponse response = (new Gson()).fromJson(jsonResponse, DraftItemResponse.class);
+        response.check();
+        return response;
+    }
+
+    public DraftItemsListResponse createDraftItemList (JsonArray body, Long draftId) throws HUFException {
+        JsonObject jsonResponse = callService("/" + draftId + "/items/list", RequestMethod.POST, body);
+        DraftItemsListResponse response = (new Gson()).fromJson(jsonResponse, DraftItemsListResponse.class);
         response.check();
         return response;
     }

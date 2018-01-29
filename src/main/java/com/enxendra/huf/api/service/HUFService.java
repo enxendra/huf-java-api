@@ -13,6 +13,7 @@ import com.enxendra.huf.api.Constants;
 import com.enxendra.huf.api.RequestMethod;
 import com.enxendra.huf.api.RequestOptions;
 import com.enxendra.huf.api.exception.HUFException;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -42,15 +43,19 @@ public class HUFService {
     }
 
     protected JsonObject callService(String path, RequestMethod requestMethod) throws HUFException {
-        return callService(path, requestMethod, null, null);
+        return callService(path, requestMethod, null, (JsonObject)null);
     }
 
     protected JsonObject callService(String path, RequestMethod requestMethod, Map<String, Object> queryParams)
             throws HUFException {
-        return callService(path, requestMethod, queryParams, null);
+        return callService(path, requestMethod, queryParams, (JsonObject)null);
     }
 
     protected JsonObject callService(String path, RequestMethod requestMethod, JsonObject body) throws HUFException {
+        return callService(path, requestMethod, null, body);
+    }
+
+    protected JsonObject callService(String path, RequestMethod requestMethod, JsonArray body) throws HUFException {
         return callService(path, requestMethod, null, body);
     }
 
@@ -116,10 +121,84 @@ public class HUFService {
             // Add response code and message to the json object
             JsonObject jsonObject = rootElement.getAsJsonObject();
             jsonObject.addProperty("responseCode", urlConnection.getResponseCode());
-            String responseMessage = urlConnection.getResponseMessage();
-            jsonObject.addProperty("responseMessage", responseMessage.equals("Creado") ? "CREATED" : responseMessage);
+            /*String responseMessage = urlConnection.getResponseMessage();
+            jsonObject.addProperty("responseMessage", responseMessage.equals("Creado") ? "CREATED" : responseMessage);*/
 
             return jsonObject;
+
+        } catch (Exception e) {
+            throw new HUFException(e.getMessage(), "S/N", e);
+        }
+
+    }
+
+    protected JsonObject callService(String path, RequestMethod requestMethod, Map<String, Object> queryParams,
+                                    JsonArray body) throws HUFException {
+
+        JsonReader reader;
+        JsonParser parser = new JsonParser();
+        String endpoint = this.urlBase + path;
+
+        try {
+
+            // If there are queryParams and it is a GET request
+            if (queryParams != null && queryParams.size() > 0 && requestMethod.equals(RequestMethod.GET))
+                endpoint = this.urlBase + path + getQuery(queryParams);
+
+            System.out.println(requestMethod.name() + " request to: " + endpoint);
+            HttpURLConnection urlConnection = (HttpURLConnection) new URL(endpoint).openConnection();
+
+            // Add header
+            System.out.println(Constants.CLIENT_VERSION + ": " + requestOptions.getClientVersion());
+
+            if (requestOptions.getUserToken() != null)
+                System.out.println(Constants.USER_TOKEN + ": " + requestOptions.getUserToken());
+
+            System.out.println(Constants.CONTENT_TYPE + ": " + Constants.APP_JSON);
+            System.out.println(Constants.AUTH + ": " + Constants.BASIC + " " + requestOptions.getApiKey());
+
+            urlConnection.setRequestProperty(Constants.CONTENT_TYPE, Constants.APP_JSON);
+
+            if (requestOptions.getUserToken() != null)
+                urlConnection.setRequestProperty(Constants.USER_TOKEN, requestOptions.getUserToken());
+
+            urlConnection.setRequestProperty(Constants.CLIENT_VERSION, requestOptions.getClientVersion());
+            urlConnection.setRequestProperty(Constants.AUTH, Constants.BASIC + " " + requestOptions.getApiKey());
+            urlConnection.setRequestMethod(requestMethod.name());
+
+            if (getConnectTimeOut() != null)
+                urlConnection.setConnectTimeout(getConnectTimeOut());
+
+            if (getReadTimeOut() != null)
+                urlConnection.setReadTimeout(getReadTimeOut());
+
+            // Add body (only if there is a body JsonObject and it is not a GET request)
+            if (body != null && !requestMethod.equals(RequestMethod.GET)) {
+                urlConnection.setDoOutput(true);
+                System.out.println("Body: " + body.toString());
+                OutputStream os = urlConnection.getOutputStream();
+                os.write(body.toString().getBytes());
+                os.flush();
+            }
+
+            urlConnection.connect();
+
+            try {
+                reader = new JsonReader(new InputStreamReader(urlConnection.getInputStream()));
+            } catch (IOException e) {
+                reader = new JsonReader(new InputStreamReader(urlConnection.getErrorStream()));
+            }
+            JsonElement rootElement = parser.parse(reader);
+
+            // Add response code and message to the json object
+            JsonObject jsonArray = ((JsonObject) rootElement);
+            jsonArray.addProperty("responseCode", urlConnection.getResponseCode());
+
+
+            /*String responseMessage = urlConnection.getResponseMessage();
+            jsonArray.addProperty("responseMessage", responseMessage.equals("Creado") ? "CREATED" : responseMessage);*/
+
+            return jsonArray;
 
         } catch (Exception e) {
             throw new HUFException(e.getMessage(), "S/N", e);

@@ -45,6 +45,9 @@ public class Draft {
     private String is_valid;
     private Map<String, String> invoice_errors;
 
+    private List<Centre> receiver_centres;
+    private List<Centre> sender_centres;
+
     public Long getId() {
         return id;
     }
@@ -293,4 +296,19 @@ public class Draft {
         this.dir3_code_4 = dir3_code_4;
     }
 
+    public List<Centre> getReceiver_centres() {
+        return receiver_centres;
+    }
+
+    public void setReceiver_centres(List<Centre> receiver_centres) {
+        this.receiver_centres = receiver_centres;
+    }
+
+    public List<Centre> getSender_centres() {
+        return sender_centres;
+    }
+
+    public void setSender_centres(List<Centre> sender_centres) {
+        this.sender_centres = sender_centres;
+    }
 }

@@ -29,11 +29,11 @@ public class Customer {
         return name;
     }
 
-    public String getFirstSurName (){
+    public String getFirstSurname (){
         return first_surname;
     }
 
-    public String getSecondSurName (){
+    public String getSecondSurname (){
         return second_surname;
     }
 
@@ -85,11 +85,11 @@ public class Customer {
         this.name = name;
     }
 
-    public void setFirstSurName (String first_surname){
+    public void setFirstSurname (String first_surname){
         this.first_surname = first_surname;
     }
 
-    public void setSecondSurName (String second_surname){
+    public void setSecondSurname (String second_surname){
         this.second_surname = second_surname;
     }
 

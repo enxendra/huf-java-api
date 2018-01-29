@@ -11,7 +11,7 @@ public class OrganizationConfiguration {
     private String pdf_template;
     private String primary_color;
     private String secondary_color;
-    private Boolean signature_delegate;
+    private Boolean signature_delegated;
     private String footer_texts;
 
     public String getCurrency() {
@@ -51,7 +51,7 @@ public class OrganizationConfiguration {
     }
 
     public Boolean getSignatureDelegate() {
-        return signature_delegate;
+        return signature_delegated;
     }
 
     public String getFooterTexts() {
@@ -95,7 +95,7 @@ public class OrganizationConfiguration {
     }
 
     public void setSignatureDelegate(Boolean signature_delegate) {
-        this.signature_delegate = signature_delegate;
+        this.signature_delegated = signature_delegate;
     }
 
     public void setFooterTexts(String footer_texts) {
